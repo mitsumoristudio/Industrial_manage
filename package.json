@@ -1,0 +1,34 @@
+{
+  "name": "ecommerce_tools",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.js"
+  },
+  "type": "module",
+  "author": "SM",
+  "license": "MIT",
+  "description": "Postgres Ecommerce Tool app",
+  "dependencies": {
+    "@arcjet/inspect": "^1.0.0-beta.7",
+    "@arcjet/node": "^1.0.0-beta.1",
+    "@neondatabase/serverless": "^0.10.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.0",
+    "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.7",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "webpack-bundle-analyzer": "^4.10.2"
+  }
+}
