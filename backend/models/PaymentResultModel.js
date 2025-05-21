@@ -14,7 +14,7 @@ export const initPaymentResultModel = async () => {
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
                 `
-        console.log("paymentResult database initialized successfully.");
+     //   console.log("paymentResult database initialized successfully.");
     } catch (error) {
         console.log("Issue creating paymentResultModel sql table", error);
     }

@@ -20,7 +20,7 @@ export const initOrderModel = async () => {
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
             `
-        console.log("orders Database initialized successfully");
+      //  console.log("orders Database initialized successfully");
     } catch (error) {
         console.log("Issue creating orderModel sql table")
     }

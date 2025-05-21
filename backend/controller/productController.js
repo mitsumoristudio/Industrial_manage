@@ -18,26 +18,41 @@ export const updateProduct = asyncHandler(async (req, res) => {
         price,
         count_in_stock } = req.body;
 
-    try {
-        const modifyProducts = await sql`
-            UPDATE products
-            SET name=${name}, image=${image}, brand=${brand}, category=${category},
-            description=${description}, rating=${rating}, num_reviews=${num_reviews},
-            price=${price}, count_in_stock=${count_in_stock}
+  try {
+      // Check if product exists
+      const existingProduct = await sql`
+            SELECT * FROM products WHERE id = ${id}
             `;
+      if (existingProduct.length === 0) {
+          return res.status(404).json({
+              success: false,
+              message: "Product was not found"
+          });
+      }
+          // Update the Product
+          const updatedProduct = await sql`
+                UPDATE products
+                SET name = ${name},
+                    image = ${image},
+                    brand = ${brand},
+                    category = ${category},
+                    description = ${description},
+                    rating = ${rating},
+                    num_reviews = ${num_reviews},
+                    price = ${price},
+                    count_in_stock = ${count_in_stock}
+                WHERE id = ${id}
+                RETURNING *;                  
+    `;
+          return res.status(200).json({
+              success: true,
+              data: updatedProduct[0],
+          })
 
-        if (modifyProducts.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "Product was not found"
-            })
-        }
-
-        res.status(200).json({success: true, data: modifyProducts[0]})
-    } catch (error) {
-        console.log("Error in updating product", error);
-        res.status(500).json({success: false, message: 'Internal Server Error'});
-    }
+  } catch (error) {
+      console.log("Error updating product", error);
+      res.status(500).json({success: false, message: 'Internal Server Error'});
+  }
 })
 
 // @desc Create a Product

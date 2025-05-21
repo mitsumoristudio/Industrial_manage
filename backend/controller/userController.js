@@ -11,6 +11,50 @@ import bcryptjs from "bcryptjs";
 export const authenticateUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
 
+    const findUser = await sql`
+        SELECT * FROM users WHERE email = ${email}
+        `;
+    if (findUser.length === 0) {
+        return res.status(401).json({
+            success: false,
+            message: 'User not found. Please try again'});
+    }
+
+    const user = findUser[0];
+
+    const isMatch = await bcryptjs.compare(password, user.password);
+
+    if (!isMatch) {
+        return res.status(401).json({
+            success: false,
+            message: 'Password does not match',
+        });
+    }
+
+    if (findUser.length > 0) {
+        const token = await jwt.sign({id: findUser.id},
+            process.env.JWT_SECRET_TOKEN, {
+                expiresIn: `30d`
+            });
+
+        // Set JWT as HTTP-Only Cookie
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 30 * 24 * 60 * 60 * 1000 // 30days in miliseconds
+        });
+
+        res.json({
+            success: true,
+            id: user.id,
+            email: user.email,
+        })
+        console.log("User was authenticated")
+    } else {
+        res.status(400);
+        throw new Error("Invalid User Data");
+    }
 })
 
 // @desc    Register a new user
@@ -85,14 +129,23 @@ export const getAllUsers = asyncHandler(async (req, res) => {
         console.log("Error in getAllUsers", error);
         res.status(500).json({success: false, message: 'Internal Server Error'});
     }
-
-
 })
 
 // @desc    Get user by ID
 // @route   GET /api/users/:id
 // @access  Private/Admin
 export const getUser = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await sql`
+            SELECT * FROM users WHERE id = ${id}
+            `;
+        res.status(200).json({success: true, data: user[0]});
+    } catch (error) {
+        console.log("Error in getUser", error);
+        res.status(500).json({success: false, message: 'Internal Server Error'});
+    }
 
 })
 
@@ -100,6 +153,38 @@ export const getUser = asyncHandler(async (req, res) => {
 // @route   PUT /api/users/:id
 // @access  Private/Admin
 export const updateUser = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const {name, email, password } = req.body;
+
+    try {
+        // Check if the user exists
+        const existingUser = await sql`
+            SELECT * FROM users WHERE id = ${id};
+        `;
+
+        if (existingUser.length === 0) {
+            return res.status(404).json({success: false, message: 'User was not found'
+            });
+        }
+
+        // Update the User
+        const updatedUser = await sql`
+             UPDATE users
+             SET name = ${name},
+                 email = ${email},
+                 password = ${password}
+             WHERE id = ${id}
+             RETURNING *;
+             `;
+        return res.status(200).json({
+            success: true,
+            data: updatedUser[0]
+        })
+
+    } catch (error) {
+        console.log("Error in updateUser", error);
+        res.status(500).json({success: false, message: 'Internal Server Error'});
+    }
 
 })
 
@@ -107,5 +192,21 @@ export const updateUser = asyncHandler(async (req, res) => {
 // @route   DELETE /api/users/:id
 // @access  Private/Admin
 export const deleteUser = asyncHandler(async (req, res) => {
+    const { id } = req.params;
 
+    try {
+        const deletedUser = await sql`
+            DELETE FROM users WHERE id = ${id}
+            RETURNING *;
+    `;
+        if (deletedUser.length === 0) {
+            return res.status(404).json({success: false, message: 'User was not found'
+            })
+        }
+        res.status(200).json({success: true, data: deletedUser[0]});
+
+    } catch (error) {
+        console.log("Error in deleteUser", error);
+        res.status(500).json({success: false, message: 'Internal Server Error'});
+    }
 })

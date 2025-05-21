@@ -16,7 +16,7 @@ export const initOrderItemsModel = async () => {
               );
               `
 
-        console.log("orderItems Database initialized successfully.");
+      //  console.log("orderItems Database initialized successfully.");
     } catch (error) {
         console.log("Issue creating OrderItemsModel sql table", error);
     }

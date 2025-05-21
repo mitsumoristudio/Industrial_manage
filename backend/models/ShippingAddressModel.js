@@ -15,7 +15,7 @@ export const initShippingAddressModel = async () => {
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     );
                     `
-        console.log("shippingAddress Database initialized successfully.");
+     //   console.log("shippingAddress Database initialized successfully.");
     } catch (error) {
         console.log("Issue creating shipping address sql table", error)
     }

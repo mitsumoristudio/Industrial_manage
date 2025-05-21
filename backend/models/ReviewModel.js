@@ -15,7 +15,7 @@ export const initReviewModel = async () => {
              );
              `
 
-        console.log("reviews Database initialized successfully");
+     //   console.log("reviews Database initialized successfully");
     } catch (error) {
         console.log("Issue creating ReviewModel sql table")
     }
