@@ -4,7 +4,7 @@ export default async function initUserModel() {
     try {
         await sql`
               CREATE TABLE IF NOT EXISTS users (
-                        id SERIAL PRIMARY KEY AUTO_INCREMENT,
+                        id SERIAL PRIMARY KEY NOT NULL,
                         name VARCHAR NOT NULL,
                         email VARCHAR NOT NULL UNIQUE,
                         password VARCHAR NOT NULL,

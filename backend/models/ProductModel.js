@@ -6,7 +6,7 @@ export default async function initProductModel() {
         await sql`
             CREATE TABLE IF NOT EXISTS products (
                     id SERIAL PRIMARY KEY NOT NULL,
-                    user_id INTEGER NOT NULL REFERENCES users(id),
+                    user_id INTEGER REFERENCES users(id),
                     name VARCHAR NOT NULL,
                     image VARCHAR NOT NULL,
                     brand VARCHAR NOT NULL,

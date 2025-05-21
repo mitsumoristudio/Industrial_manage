@@ -13,6 +13,8 @@ import initProductModel from "./models/ProductModel.js";
 import {initOrderItemsModel} from "./models/OrdersItemsModel.js";
 import {initShippingAddressModel} from "./models/ShippingAddressModel.js";
 import {initPaymentResultModel} from "./models/PaymentResultModel.js";
+import productRoute from "./routes/productRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 dotenv.config();
 
@@ -70,6 +72,10 @@ app.use(async  (req, res, next) => {
         next(error);
     }
 })
+
+app.use("/api/products", productRoute);
+
+app.use("/api/users", userRoute);
 
 // Connect to Postgres Database by creating a table
 // Initialize the usersModel
