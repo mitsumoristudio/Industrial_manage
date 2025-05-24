@@ -15,6 +15,7 @@ import {initShippingAddressModel} from "./models/ShippingAddressModel.js";
 import {initPaymentResultModel} from "./models/PaymentResultModel.js";
 import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config();
 
@@ -73,9 +74,18 @@ app.use(async  (req, res, next) => {
     }
 })
 
+// Products
 app.use("/api/products", productRoute);
 
+// Users
 app.use("/api/users", userRoute);
+
+// Upload Images
+app.use("/api/uploads", uploadRoutes);
+
+// Set upload folder as static
+const __dirname = path.resolve(); // Set _dirname to current directory
+app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // changed the pathname because the root folder would not accept /uploads previous running from backend package json ../uploads
 
 // Connect to Postgres Database by creating a table
 // Initialize the usersModel
@@ -100,13 +110,11 @@ initShippingAddressModel();
 initOrderModel()
 
 
-
     .then(() => {
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
     })
 })
-
 
 // Error Handler
 app.use(notFound);
