@@ -1,5 +1,4 @@
 
-import React from "react";
 import {assets} from "../assets/assets";
 import {useSelector, useDispatch } from "react-redux";
 import {NavLink, useNavigate,} from "react-router-dom";
@@ -34,7 +33,7 @@ export default function TopNavBar() {
                         <img onClick={() => navigate("/")}
                              alt={"header-logo"}
                              className={"hidden md:flex size-12 cursor-pointer justify-center mx-2 mb-1"}
-                             src={assets.on_air}/>
+                             src={assets.crane_icon}/>
                         <div className={"flex items-center gap-2 px-2 mb-1 sm:hidden rounded-xl "}>
                             <FaFlagUsa size={22} />
                             <h2>USD</h2>

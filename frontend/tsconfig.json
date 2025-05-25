@@ -4,8 +4,11 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es5"
     ],
+    "sourceMap": true,
+    "types": ["cypress", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,6 +24,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "**/*.ts"
   ]
 }
