@@ -1,5 +1,5 @@
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
@@ -122,7 +122,7 @@ export default function ProductTableScreen() {
                             <tbody className='divide-y divide-gray-700'>
                             {filteredProducts?.data.map((product :any) => (
                                 <motion.tr
-                                    key={product._id}
+                                    key={product.id}
                                     initial={{opacity: 0}}
                                     animate={{opacity: 1}}
                                     transition={{duration: 0.3}}
