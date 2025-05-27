@@ -3,6 +3,7 @@ import {useState} from "react";
 import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
+import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams} from "react-router-dom";
 import CustomLoader from "../components/CustomLoader";
 import {toast} from "react-toastify";
@@ -20,6 +21,9 @@ export default function ProductTableScreen() {
     const [filteredProducts, setFilteredProducts] = useState(products);
     const navigate = useNavigate();
 
+    const refetchHandle  = async () => {
+       refetch()
+    }
 
     const handleSearch = (e: any) => {
         const term = e.target.value.toLowerCase();
@@ -71,16 +75,22 @@ export default function ProductTableScreen() {
                             <CiSearch className='absolute left-3 top-2.5 text-gray-400' size={18}/>
                         </div>
 
-                        <div className={"flex flex-row "}>
+                        <div className={"flex flex-row gap-4 mx-2"}>
                             <Link to="/admin/addProduct">
                                 <button
                                     className={" right-2 mt-1 bg-blue-800 text-white text-md px-4 py-3 rounded-3xl shadow-md cursor-pointer " +
                                         "hover:scale-110 transition-all duration-500"}>
                                     <FaPlus size={16} aria-placeholder={"Create Product"}/>
-
                                 </button>
                             </Link>
+                                <button className={"right-2 mt-1 bg-green-400 text-white text-md px-4 py-3 rounded-3xl shadow-md cursor-pointer " +
+                                    "hover:scale-110 transition-all duration-500"}
+                                        onClick={refetchHandle}
+                                >
+                                    <IoSyncCircleSharp size={16} />
+                                </button>
                         </div>
+
 
                     </div>
 
@@ -154,7 +164,7 @@ export default function ProductTableScreen() {
 
 
                                     <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-                                        <Link to={`/admin/products/${product._id}/edit`}>
+                                        <Link to={`/admin/products/${product.id}/edit`}>
                                             <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>
                                         </Link>
 

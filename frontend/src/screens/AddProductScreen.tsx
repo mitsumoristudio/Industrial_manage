@@ -21,7 +21,7 @@ export const AddProductScreen = () => {
     const [uploadProductImage] = useUploadProductImageMutation();
 
     const {userInfo} = useSelector((state : any) => state.auth);
-    const usersID = userInfo?.user || "";
+    const usersID = userInfo?.user || "22";
 
     const uploadImageHandler = async (e: any) => {
         const formData = new FormData();
@@ -36,19 +36,30 @@ export const AddProductScreen = () => {
         }
     }
 
+    const handleNumChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value;
+        const parsedValue = newValue === "" ? "" : parseFloat(newValue)
+
+        if (!isNaN(parsedValue as number) || newValue === "") {
+            // @ts-ignore
+            setPrice(parsedValue)
+        }
+    }
+
     const onSubmitHandler = async (e: any) => {
         e.preventDefault();
         try {
             await createProduct( {
-                user: usersID,
+                user_id: usersID,
                 name: name,
                 price: price,
                 brand: brand,
                 image: image,
                 category: category,
                 description: description,
-                countInStock: countInStock,
-                numReviews: Number(0),
+                count_in_stock: countInStock,
+                rating: 0,
+                num_reviews: Number(0),
             }).unwrap();
 
             toast.success("Product Added Successfully.");
@@ -98,7 +109,9 @@ export const AddProductScreen = () => {
                                value={price}
                                required={true}
                                data-cx={"input-price"}
-                               onChange={(e : any) => setPrice(e.target.value)}/>
+                               onChange={handleNumChange}
+                               // onChange={(e: any) => setPrice(e.target.value)}
+                        />
                     </div>
 
                     <div className={'w-full '}>

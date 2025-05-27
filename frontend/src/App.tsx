@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 import ProductTableScreen from "./screens/ProductTableScreen";
 import {AddProductScreen} from "./screens/AddProductScreen";
-
+import ProductEditScreen from "./screens/ProductEditScreen";
+import HomeScreen from "./screens/HomeScreen";
 
 export default function App() {
   return (
@@ -15,8 +16,10 @@ export default function App() {
           <TopNavBar />
 
           <Routes>
+              <Route path={"/"} element={<HomeScreen />} />
               <Route path={"/admin/producttable"} element={<ProductTableScreen />} />
               <Route path={"/admin/addProduct"} element={<AddProductScreen />} />
+              <Route path={"/admin/products/:id/edit"} element={<ProductEditScreen />} />
 
           </Routes>
 
