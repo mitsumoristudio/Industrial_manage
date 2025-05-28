@@ -5,6 +5,7 @@ import Meta from "../components/Meta";
 import {useGetAllProductsQuery} from "../features/productApiSlice";
 import {useParams} from "react-router-dom";
 import {StarIcon} from "@heroicons/react/20/solid";
+import ImageCarousel from "../components/ImageCarousel";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -82,6 +83,10 @@ export default function ShoppingScreen() {
                                 </div>
                             </>
                         )}
+                        <div className={"py-2 mx-auto"}>
+                            <ImageCarousel />
+                        </div>
+
 
                     </div>
                 </div>

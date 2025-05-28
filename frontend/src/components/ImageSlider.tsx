@@ -1,5 +1,5 @@
 
-import {mockSliderData} from "./mockSlider";
+import {mockSliderData} from "../mockdata/mockSlideData";
 import { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
