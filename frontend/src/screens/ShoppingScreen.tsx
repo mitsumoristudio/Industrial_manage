@@ -26,7 +26,7 @@ export default function ShoppingScreen() {
 
                         {isLoading ? (
                             <div className={"py-6 mb-2"}>
-                                <CustomLoader />
+                                <CustomLoader/>
                             </div>
 
                         ) : isError ? (
@@ -48,7 +48,7 @@ export default function ShoppingScreen() {
 
                                             <div className={"pt-10 text-center"}>
                                                 <h3 className={"text-sm font-medium text-gray-800"}>
-                                                    <a href={`/products/${product._id}`} key={product._id}>
+                                                    <a href={`/products/${product.id}`} key={product.id}>
                                                         <span aria-hidden={"true"} className="absolute inset-0"/>
                                                         {product.name}
                                                     </a>
@@ -83,8 +83,17 @@ export default function ShoppingScreen() {
                                 </div>
                             </>
                         )}
+                        <div className={"container mx-auto py-3"}>
+                            <div className={"flex flex-col items-center justify-center mx-auto text-center"}>
+                                <h1 className={"uppercase text-gray-900 font-semibold text-4xl "}>
+                                    Made for heavy duty
+                                </h1>
+
+                            </div>
+                        </div>
+
                         <div className={"py-2 mx-auto"}>
-                            <ImageCarousel />
+                            <ImageCarousel/>
                         </div>
 
 

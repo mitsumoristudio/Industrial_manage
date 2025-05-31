@@ -120,15 +120,15 @@ export default function ProductTableScreen() {
                             </thead>
 
                             <tbody className='divide-y divide-gray-700'>
-                            {filteredProducts?.data.map((product :any) => (
+                            {filteredProducts?.data.map((product :any, index) => (
                                 <motion.tr
-                                    key={product.id}
+                                    key={`${product.id}-${index}`}
                                     initial={{opacity: 0}}
                                     animate={{opacity: 1}}
                                     transition={{duration: 0.3}}
                                 >
 
-                                    <td className='px-6 py-4 whitespace-nowrap' key={product._id}>
+                                    <td className='px-6 py-4 whitespace-nowrap' key={`${product.id}-${index}`}>
                                         <div className='flex items-center'>
                                             <div className='flex-shrink-0 h-10 w-10'>
                                                 <div

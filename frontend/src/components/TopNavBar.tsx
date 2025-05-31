@@ -1,23 +1,31 @@
 
 import {assets} from "../assets/assets";
 import {useSelector, useDispatch } from "react-redux";
+import {logout} from "../features/authSlice";
 import {NavLink, useNavigate,} from "react-router-dom";
 import {FaShoppingCart, FaUser, FaFlagUsa} from "react-icons/fa";
 import { RiAdminLine, RiUser2Fill } from "react-icons/ri";
 import SearchBar from "./SearchBar";
 import CartPopOver from "./CartPopOver";
+import {useLogoutMutation} from "../features/userApiSlice";
 
 export default function TopNavBar() {
+
+    // @ts-ignore
+    const {userInfo} = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const userInfo: string = "userInfo"
 
-
+    const [logoutApiCall] = useLogoutMutation();
+    // @ts-ignore
+    const {cartItems} = useSelector((state) => state.cartSlice);
 
     const logoutHandler = async () => {
         try {
-
-            // Add logout functionality later
+            // @ts-ignore
+            await logoutApiCall().unwrap()
+            // @ts-ignore
+            dispatch(logout())
             navigate("/login")
         } catch (error) {
             console.error(error);
@@ -43,22 +51,22 @@ export default function TopNavBar() {
                     {/* NavBar TabView HOME STORE CONTACT ABOUT */}
                     <ul className={"hidden md:flex items-start gap-16 font-medium justify-start"}>
                         <NavLink to={"/"}>
-                            <li className={"py-2 md: text-md lg: text-lg xl: text-xl hover:text-blue-800"}>HOME</li>
+                            <li className={"py-2 md: text-md lg: text-xl xl: text-xl hover:text-blue-800"}>HOME</li>
                             <hr className={'border-b outline-none h-0.5 w-3/5 m-auto hidden '}/>
                         </NavLink>
 
                         <NavLink to={"/products"}>
-                            <li className={"py-2 md: text-md lg: text-lg xl: text-xl hover:text-blue-800"}>HARDWARE</li>
+                            <li className={"py-2 md: text-md lg: text-xl xl: text-xl hover:text-blue-800"}>HARDWARE</li>
                             <hr className={'border-b outline-none h-0.5 bg-primary w-3/5 m-auto hidden'}/>
                         </NavLink>
 
                         <NavLink to={"/contactUs"}>
-                            <li className={"py-2 md: text-md lg: text-lg xl: text-xl hover:text-blue-800"}>CONTACT</li>
+                            <li className={"py-2 md: text-md lg: text-xl xl: text-xl hover:text-blue-800"}>CONTACT</li>
                             <hr className={'border-b outline-none h-0.5 bg-primary w-3/5 m-auto hidden'}/>
                         </NavLink>
 
                         <NavLink to={"/value"}>
-                            <li className={"py-2 md: text-md lg: text-lg xl: text-xl hover:text-blue-800"}>VALUES</li>
+                            <li className={"py-2 md: text-md lg: text-xl xl: text-xl hover:text-blue-800"}>VALUES</li>
                             <hr className={'border-b outline-none h-0.5 bg-primary w-3/5 m-auto hidden'}/>
                         </NavLink>
                     </ul>
@@ -73,11 +81,11 @@ export default function TopNavBar() {
                         <div className={"flex items-center gap-3 cursor-pointer group relative "}>
                             <NavLink to={"/cart"}>
                                 <FaShoppingCart size={26}/>
-                                {/*{cartItems.length > 0 && (*/}
-                                {/*    <h3 className={"text-gray-800 font-semibold"} style={{marginLeft: "5px"}}>*/}
-                                {/*        {cartItems.reduce((acc, item) => acc + item.qty, 0)}*/}
-                                {/*    </h3>*/}
-                                {/*)}*/}
+                                {cartItems?.length > 0 && (
+                                    <h3 className={"text-gray-800 font-semibold"} style={{marginLeft: "5px"}}>
+                                        {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                                    </h3>
+                                )}
 
                                 <div
                                     className={"absolute top-0 right-0 pt-12 text-base font-medium text-gray-800 z-20 hidden group-hover:block"}>
@@ -102,7 +110,6 @@ export default function TopNavBar() {
                                             <NavLink className={"hover:text-blue-500"} to={"/myOrders"}>
                                                 My Orders
                                             </NavLink>
-
 
                                             <NavLink
                                                 className={"hover:text-blue-500"}

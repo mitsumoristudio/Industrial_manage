@@ -14,8 +14,8 @@ export default function ProductCard() {
 
     return (
         <div className="-mx-px grid grid-cols-2 border-spacing-1 border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4">
-            {products.data.map((product)=> (
-                <div key={product.id} className="group relative border-b border-r border-gray-200 p-4 sm:p-6">
+            {products.data.map((product, index)=> (
+                <div key={`${product.id}-${index}`} className="group relative border-b border-r border-gray-200 p-4 sm:p-6">
                     <img
                         alt={product.name}
                         src={product.image}

@@ -34,9 +34,9 @@ export default function ShippingFooter() {
                         </div>
 
                         <ul className={"mx-auto mt-12 grid max-w-sm grid-cols-1 gap-x-8 gap-y-10 sm:max-w-none lg:grid-cols-3"}>
-                            {benefits.map((incentive) => {
+                            {benefits.map((incentive, index) => {
                                 return (
-                                    <li key={"incentive.id"}>
+                                    <li key={`${incentive}-${index}`}>
                                         <div
                                             className={"text-center sm:flex sm:text-left lg:block lg:text-center"}>
                                             <div className={"sm:shrink-0"}>
