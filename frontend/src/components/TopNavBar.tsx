@@ -36,6 +36,7 @@ export default function TopNavBar() {
         <>
             {/* Navbar Admin Icon */}
             <header>
+
                 <div className={'flex items-center justify-between text-sm px-1 border-b border-b-gray-800 bg-slate-100'}>
                     <div className={'flex items-center justify-center px-1 mx-2 gap-2 '}>
                         <img onClick={() => navigate("/")}

@@ -2,6 +2,8 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import {calcPrices} from "../utils/calcPrices.js";
 import {sql} from "../config/postGresdb.js";
+import {Client} from "@neondatabase/serverless";
+
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -28,6 +30,37 @@ export const addOrderItems = asyncHandler(async (req, res) => {
             console.log("Error adding order item", error);
             res.status(500).json({success: false, message: 'Internal Server Error'});
         }
+})
+
+export const protectAddOrderItems = asyncHandler(async (req, res) => {
+    const {orderItems, shippingAddress, paymentMethod} = req.body;
+    const {id} = req.params;
+    const client = new Client()
+    await client.connect();
+
+    if (!orderItems || orderItems.length === 0) {
+        res.status(400).json({success: false, message: 'No order items found.'});
+    }
+
+    // Get products from DB
+    const productsIds = orderItems.map(item => item.id);
+    const productQuery = await sql`SELECT id, price FROM products WHERE id = ${id}`;
+    const {rows: itemsFromDB } = await client.query(productQuery, [productsIds]);
+
+    // Match and build order Items with DB price
+    const dbOrderItems = orderItems.map(item => {
+        const match = itemsFromDB.find(p => p.id === item.id);
+        if (!match) {
+            throw new Error(`Item with id ${item.id} not found.`);
+        } return {
+            ...item,
+            id: item.id,
+            price: item.price,
+        }
+    });
+
+    const {itemsPrice, taxPrice, shippingPrice, totalPrice} = calcPrices(dbOrderItems);
+
 })
 
 // @desc    Get all orders

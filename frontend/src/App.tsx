@@ -10,6 +10,10 @@ import ShoppingScreen from "./screens/ShoppingScreen";
 import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from "../src/screens/RegisterScreen"
 import LoginScreen from "../src/screens/LoginScreen"
+import CartSummaryScreen from "../src/screens/CartSummaryScreen";
+import StaticNavHeader from "./components/StaticNavHeader";
+
+
 
 export default function App() {
   return (
@@ -17,7 +21,8 @@ export default function App() {
       <Router>
           <ToastContainer />
 
-          <TopNavBar />
+          <StaticNavHeader />
+          {/*<TopNavBar />*/}
 
           <Routes>
               <Route path={"/"} element={<HomeScreen />} />
@@ -26,6 +31,7 @@ export default function App() {
               <Route path={"/products/:id"} element={<ProductScreen />} />
               <Route path={"/register"} index={true} element={<RegisterScreen />} />
               <Route path={"/login"} index={true} element={<LoginScreen />} />
+              <Route path={"/cart"} element={<CartSummaryScreen />} />
 
               <Route path={"/admin/producttable"} element={<ProductTableScreen />} />
               <Route path={"/admin/addProduct"} element={<AddProductScreen />} />

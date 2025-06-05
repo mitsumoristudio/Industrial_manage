@@ -169,7 +169,7 @@ export default function ProductTableScreen() {
                                         </Link>
 
                                         <button className='text-red-400 hover:text-red-300'
-                                                onClick={() => deleteHandler(product._id)}>Delete</button>
+                                                onClick={() => deleteHandler(product.id)}>Delete</button>
                                     </td>
                                 </motion.tr>
                             ))}

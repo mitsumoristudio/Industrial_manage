@@ -6,7 +6,7 @@ import {updateCart} from "../util/cartUtils"
 const initialState = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart") as string) : {cartItems: [],
     shippingAddress: {}, paymentMethod: 'Paypal'};
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {

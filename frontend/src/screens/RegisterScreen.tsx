@@ -53,7 +53,7 @@ export default function RegisterScreen() {
             <form className={'min-h-[80vh] flex items-center'}
                   onSubmit={onSubmitHandler}>
                 <div
-                    className={'flex flex-col gap-3 m-auto items-start p-8 min-w-[380px] sm: min-w-160 border rounded-xl text-zinc-700 text-sm shadow-lg '}>
+                    className={'flex flex-col bg-gradient-to-tr from-gray-200  gap-3 m-auto items-start p-8 min-w-[380px] sm: min-w-160 border rounded-xl text-zinc-700 text-sm shadow-lg '}>
                     <p className={'text-3xl font-semibold mb-2'}
                        data-cy={"register-title"}>Register</p>
 

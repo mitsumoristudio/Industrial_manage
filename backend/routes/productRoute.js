@@ -5,6 +5,7 @@ import {getAllProducts,
         createProduct,
         getProduct,
         deleteProduct} from "../controller/productController.js";
+import {protectRoutes} from "../middleware/authMiddleware.js";
 
 // add protect routes which verifies the token and find by UserID
 
@@ -14,6 +15,6 @@ router.route("/").get(getAllProducts);
 router.route("/:id").get(getProduct);
 router.route("/:id").put(updateProduct);
 router.route("/:id").delete(deleteProduct);
-router.route("/").post(createProduct);
+router.route("/").post(protectRoutes, createProduct);
 
 export default router;
