@@ -2,17 +2,10 @@ import './App.css';
 import TopNavBar from "./components/TopNavBar";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
-import ProductTableScreen from "./screens/ProductTableScreen";
-import {AddProductScreen} from "./screens/AddProductScreen";
-import ProductEditScreen from "./screens/ProductEditScreen";
-import HomeScreen from "./screens/HomeScreen";
-import ShoppingScreen from "./screens/ShoppingScreen";
-import ProductScreen from "./screens/ProductScreen";
-import RegisterScreen from "../src/screens/RegisterScreen"
-import LoginScreen from "../src/screens/LoginScreen"
-import CartSummaryScreen from "../src/screens/CartSummaryScreen";
 import StaticNavHeader from "./components/StaticNavHeader";
-
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import HomeMainScreen from "./screens/HomeMainScreen";
 
 
 export default function App() {
@@ -22,20 +15,11 @@ export default function App() {
           <ToastContainer />
 
           <StaticNavHeader />
-          {/*<TopNavBar />*/}
 
           <Routes>
-              <Route path={"/"} element={<HomeScreen />} />
-              <Route path={"/search/:keyword"} element={<HomeScreen />} />
-              <Route path={"/products"} index={true} element={<ShoppingScreen />} />
-              <Route path={"/products/:id"} element={<ProductScreen />} />
-              <Route path={"/register"} index={true} element={<RegisterScreen />} />
+              <Route path={"/"} index={true} element={<HomeMainScreen />} />
               <Route path={"/login"} index={true} element={<LoginScreen />} />
-              <Route path={"/cart"} element={<CartSummaryScreen />} />
-
-              <Route path={"/admin/producttable"} element={<ProductTableScreen />} />
-              <Route path={"/admin/addProduct"} element={<AddProductScreen />} />
-              <Route path={"/admin/products/:id/edit"} element={<ProductEditScreen />} />
+              <Route path={"/register"} index={true} element={<RegisterScreen />} />
 
 
           </Routes>

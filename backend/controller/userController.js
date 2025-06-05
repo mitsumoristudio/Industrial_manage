@@ -8,7 +8,7 @@ import bcryptjs from "bcryptjs";
 // @desc    Auth user & get token
 // @route   POST /api/users/login
 // @access  Public
-export const authenticateUser = asyncHandler(async (req, res) => {
+export const authenticateUser = async (req, res) => {
     const {email, password} = req.body;
 
     const findUser = await sql`
@@ -17,11 +17,10 @@ export const authenticateUser = asyncHandler(async (req, res) => {
     if (findUser.length === 0) {
         return res.status(401).json({
             success: false,
-            message: 'User not found. Please try again'});
+            message: "User not found"
+        })
     }
-
     const user = findUser[0];
-
     const isMatch = await bcryptjs.compare(password, user.password);
 
     if (!isMatch) {
@@ -46,45 +45,44 @@ export const authenticateUser = asyncHandler(async (req, res) => {
         });
 
         res.json({
-            success: true,
-            id: user.id,
-            email: user.email,
-        })
-        console.log("User was authenticated")
-    } else {
-        res.status(400);
-        throw new Error("Invalid User Data");
+        success: true,
+        id: user.id,
+        email: user.email,
+    })
+        console.log("User successfully logged in")
+} else {
+    res.status(400).json({
+    success: false,
+    message: "Invalid Credentials"})
     }
-})
+}
 
 // @desc    Register a new user
 // @route   POST /api/users
 // @access  Public
 export const registerUser = asyncHandler(async (req, res) => {
     const {name, email, password} = req.body;
-    const { id } = req.params;
+    const { id } = req.body;
 
     const findUser = await sql`
         SELECT * FROM users WHERE id = ${id}
-            `;
+        `;
 
     if (findUser.length > 0) {
-        return res.status(404).json({success: false, message: 'User already exists, try again'});
+        return res.status(404).json({success: false, message: "User already exists, try again"})
     }
 
     // Encrpyt the password so it is not stored in plain text. We are checking if the password has been modified. If it has, we are generating
-   // a salt and hashing the password.
-
+    // a salt and hashing the password.
     try {
         const salt = await bcryptjs.genSalt(10);
-        const newpassword = await bcryptjs.hash(password, salt);
+        const newPassword = await bcryptjs.hash(password, salt);
 
         const newUser = await sql`
             INSERT INTO users (name, email, password)
-            VALUES (${name}, ${email}, ${newpassword})
+            VALUES (${name}, ${email}, ${newPassword})
             RETURNING *
             `;
-
         if (newUser.length > 0) {
             generateToken(res, newUser[0].id);
 

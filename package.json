@@ -10,7 +10,7 @@
   "type": "module",
   "author": "SM",
   "license": "MIT",
-  "description": "Postgres Ecommerce Tool app",
+  "description": "Postgres Project Management",
   "dependencies": {
     "@arcjet/inspect": "^1.0.0-beta.7",
     "@arcjet/node": "^1.0.0-beta.1",

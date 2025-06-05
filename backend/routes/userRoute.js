@@ -1,13 +1,13 @@
 
 import express from 'express';
+import {protectRoutes, admin} from "../middleware/authMiddleware.js";
 import {logoutUser,
+        updateUser,
         authenticateUser,
-        registerUser,
+        getUser,
         getAllUsers,
         deleteUser,
-        updateUser,
-        getUser} from "../controller/userController.js";
-import {protectRoutes, admin} from "../middleware/authMiddleware.js";
+        registerUser,} from "../controller/userController.js";
 
 const router = express.Router();
 
@@ -16,8 +16,7 @@ router.route("/").get(getAllUsers);
 router.route("/logout").post(logoutUser);
 router.route("/login").post(authenticateUser);
 
-
-router.route("/:id").get(protectRoutes, admin,getUser);
+router.route("/:id").get(protectRoutes, admin, getUser);
 router.route("/:id").put(protectRoutes, admin, updateUser);
 router.route("/:id").delete(protectRoutes, admin, deleteUser);
 

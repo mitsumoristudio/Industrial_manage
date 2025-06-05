@@ -1,3 +1,4 @@
+
 import {sql} from "../config/postGresdb.js";
 
 export default async function initUserModel() {
@@ -13,9 +14,7 @@ export default async function initUserModel() {
                         updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
               )
 `;
-        console.log("users Database initialized successfully");
-    } catch (error) {
-        console.log("Error connecting to users database", error);
-    }
+    console.log("User Database initialized successfully.");
+} catch (error) {
+        console.log("Error connecting to users database", error);}
 }
-

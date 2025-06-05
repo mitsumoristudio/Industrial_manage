@@ -1,13 +1,23 @@
 
+// @ts-ignore
 import crane from "../assets/crane.png"
+// @ts-ignore
 import on_air from "../assets/on_air.png"
+// @ts-ignore
 import crane_icon from "../assets/crane_icon.png"
+// @ts-ignore
 import hardware1 from "../assets/hardware1.jpg"
+// @ts-ignore
 import hardware2 from "../assets/hardware1.jpg"
+// @ts-ignore
 import hardware3 from "../assets/hardware1.jpg"
+// @ts-ignore
 import hardware4 from "../assets/hardware1.jpg"
+// @ts-ignore
 import truck_icon from "../assets/truck_icon.png"
+// @ts-ignore
 import badge_icon from "../assets/badge_icon.png"
+// @ts-ignore
 import deliverybox from "../assets/delivery-box.png"
 
 export const assets = {
