@@ -21,10 +21,13 @@ import badge_icon from "../assets/badge_icon.png"
 import deliverybox from "../assets/delivery-box.png"
 // @ts-ignore
 import gear_home from "../assets/gear_home.jpg"
+// @ts-ignore
+import construction from "../assets/construction.jpg"
 
 
 export const assets = {
     crane,
+    construction,
     on_air,
     crane_icon,
     gear_home,

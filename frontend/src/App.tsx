@@ -5,7 +5,7 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeMainScreen from "./screens/HomeMainScreen";
 import TopNavigation from "./components/TopNavigation";
-
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -20,8 +20,9 @@ export default function App() {
               <Route path={"/login"} index={true} element={<LoginScreen />} />
               <Route path={"/register"} index={true} element={<RegisterScreen />} />
 
-
           </Routes>
+
+          <Footer/>
 
       </Router>
 

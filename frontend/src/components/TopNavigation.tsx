@@ -49,7 +49,7 @@ export default function TopNavigation() {
                     <div className="flex-shrink-0 flex items-center">
                         <div className="text-2xl font-bold text-blue-600 flex items-center">
                             <TrafficCone className="mr-2" size={28} />
-                            <span>projecttools</span>
+                            <span>Industrials</span>
                         </div>
                     </div>
 

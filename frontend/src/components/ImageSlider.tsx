@@ -1,12 +1,14 @@
 
 import {mockSliderData} from "../mockdata/mockSlideData";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import { Pause, Play } from "lucide-react";
 import {assets} from "../assets/assets";
 
 export default function ImageSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoplay, setIsAutoplay] = useState(true);
 
     const prevSlide = () => {
         const isFirstSlide = currentIndex === 0;
@@ -23,6 +25,18 @@ export default function ImageSlider() {
     const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex);
     };
+
+    const toggleAutoplay = () => {
+        setIsAutoplay(!isAutoplay);
+    }
+
+    // Auto-play Functionality
+    useEffect(() => {
+        if (!isAutoplay) return;
+
+        const interval = setInterval(nextSlide, 5000);
+        return () => clearInterval(interval)
+    }, [isAutoplay, nextSlide]);
 
 
     return (
@@ -43,14 +57,11 @@ export default function ImageSlider() {
                                 <span className="block sm:inline">{mockSliderData[currentIndex].title}</span>
                             </h2>
 
-                            <p className="mt-3 text-xl text-white">
-                                Find it all in one place
-                            </p>
                             <a
                                 href="/products"
                                 className="mt-8 block w-full rounded-md border border-transparent hover:scale-110 transition-all duration-500 bg-white px-10 py-4 text-base font-medium cursor-pointer text-black hover:bg-gray-100 sm:w-auto"
                             >
-                                Shop Now
+                                See More
                             </a>
                         </div>
                         <div className={"flex top-4 justify-center py-2 my-48  "}>
@@ -77,6 +88,17 @@ export default function ImageSlider() {
                     <BsChevronCompactRight onClick={nextSlide} size={30}/>
                 </div>
 
+                <div className={"absolute top-4 right-6"}>
+                    <button onClick={toggleAutoplay}
+                    className={"bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-300 focus:ring-2 focus:ring-blue-500"}>
+                        {isAutoplay ? (
+                            <Pause className={"text-gray-700"} size={18} />
+                        ) : (
+                            <Play className={"text-gray-700"} size={18} />
+                        )}
+
+                    </button>
+                </div>
 
 
             </div>

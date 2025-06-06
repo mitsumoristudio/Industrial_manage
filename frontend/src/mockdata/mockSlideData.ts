@@ -2,19 +2,19 @@
 
 export const mockSliderData = [
     {
-        imageSrc: "../images/hardware1.jpg",
-        title: "Find the best tool in town"
+        imageSrc: "../images/industry_1.jpg",
+        title: "Finding solutions one step at a time"
     },
     {
-        imageSrc: "../images/hardware2.jpg",
-        title: "Find the lowest cost tool bundle"
+        imageSrc: "../images/industry_5.jpg",
+        title: "Excellence from every angle"
     },
     {
-        imageSrc: "../images/hardware3.jpg",
-        title: "Summer Sales Ongoing"
+        imageSrc: "../images/industry_3.jpg",
+        title: "Industry Excellence"
     },
     {
-        imageSrc: "../images/hardware4.jpg",
-        title: "Voted best hardware store"
+        imageSrc: "../images/industry_4.jpg",
+        title: "Manage project led by decades of experience"
     },
 ]
