@@ -1,11 +1,10 @@
 import './App.css';
-import TopNavBar from "./components/TopNavBar";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
-import StaticNavHeader from "./components/StaticNavHeader";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeMainScreen from "./screens/HomeMainScreen";
+import TopNavigation from "./components/TopNavigation";
 
 
 export default function App() {
@@ -14,7 +13,7 @@ export default function App() {
       <Router>
           <ToastContainer />
 
-          <StaticNavHeader />
+          <TopNavigation/>
 
           <Routes>
               <Route path={"/"} index={true} element={<HomeMainScreen />} />

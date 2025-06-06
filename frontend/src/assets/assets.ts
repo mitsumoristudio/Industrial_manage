@@ -19,11 +19,15 @@ import truck_icon from "../assets/truck_icon.png"
 import badge_icon from "../assets/badge_icon.png"
 // @ts-ignore
 import deliverybox from "../assets/delivery-box.png"
+// @ts-ignore
+import gear_home from "../assets/gear_home.jpg"
+
 
 export const assets = {
     crane,
     on_air,
     crane_icon,
+    gear_home,
     hardware1,
     hardware2,
     hardware3,
