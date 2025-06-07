@@ -40,7 +40,6 @@ export default function TopNavigation() {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-
     return (
         <nav className="bg-white shadow-lg sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,15 +47,17 @@ export default function TopNavigation() {
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <div className="text-2xl font-bold text-blue-600 flex items-center">
-                            <TrafficCone className="mr-2" size={28} />
-                            <span>Industrials</span>
+                            <img onClick={() => navigate("/")}
+                                 alt={"header-logo"}
+                                 className={"size-14 cursor-pointer justify-center mb-1 rounded-lg shadow-lg"}
+                                 src={"../../images/industrial_logo.png"} />
                         </div>
                     </div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
-                            {navigationItems.map((item) => (
+                        {navigationItems.map((item) => (
                                 <a
                                     key={item.label}
                                     href={item.href}

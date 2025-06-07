@@ -50,7 +50,7 @@ export default function ImageSlider() {
                             className="size-full object-cover place-items-center opacity-90 bg-gray-200"
                         />
                     </div>
-                    <div className="relative px-6  sm:px-12 sm:py-40 lg:px-16">
+                    <div className="relative px-6 top-8 sm:px-12 sm:py-40 lg:px-16">
                         <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
                             <h2 id="social-impact-heading"
                                 className="font-bold tracking-tight text-white sm:text-4xl">

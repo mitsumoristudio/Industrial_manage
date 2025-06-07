@@ -3,7 +3,7 @@ import ImageSlider from "../components/ImageSlider";
 import HomeCardGrids from "../components/HomeCardGrids";
 import HomeScreenProductCard from "../components/HomeScreenProductCard";
 import {NavLink} from "react-router-dom";
-
+import Footer from "../components/Footer";
 
 
 export default function HomeMainScreen() {
@@ -23,6 +23,8 @@ export default function HomeMainScreen() {
                 </div>
                 <HomeScreenProductCard/>
             </div>
+            <Footer/>
+
 
 
 

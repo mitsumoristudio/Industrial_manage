@@ -2,8 +2,8 @@
 
 
 export const BASE_URL = "";
-export const PRODUCTS_URL = "/api/products";
+export const PROJECT_URL = "/api/projects";
 export const USERS_URL = "/api/users";
-export const ORDERS_URL = "/api/orders";
-export const PAYPAL_URL = "/api/config/paypal"
+export const CONTACTS_URL = "/api/contacts";
 export const UPLOADS_URL = "/api/uploads"
+

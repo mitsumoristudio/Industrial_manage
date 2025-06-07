@@ -1,7 +1,7 @@
 
 
 import {StarIcon} from "@heroicons/react/20/solid";
-import { useGetProductDetailsByIdQuery} from "../features/productApiSlice";
+import { useGetProductDetailsByIdQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
 
 function classNames(...classes) {
