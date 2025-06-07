@@ -20,9 +20,15 @@ export const mockShoppingData = [
     },
     {
         id: 5,
-        name: "Heavy Excavator",
-        price: "1,500,000",
-        imageSrc: "../images/heavy_excavator.jpg"
+        name: "Site 5",
+        price: "N/A",
+        imageSrc: "../images/site4.jpeg"
+    },
+    {
+        id: 6,
+        name: "Site 5",
+        price: "N/A",
+        imageSrc: "../images/site1.jpeg"
     },
 ]
 

@@ -49,7 +49,7 @@ export default function TopNavigation() {
                         <div className="text-2xl font-bold text-blue-600 flex items-center">
                             <img onClick={() => navigate("/")}
                                  alt={"header-logo"}
-                                 className={"size-14 cursor-pointer justify-center mb-1 rounded-lg shadow-lg"}
+                                 className={"size-14 cursor-pointer justify-center mb-1 rounded-full shadow-lg"}
                                  src={"../../images/industrial_logo.png"} />
                         </div>
                     </div>
