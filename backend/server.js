@@ -72,19 +72,6 @@ app.use(async  (req, res, next) => {
     }
 })
 
-// Set upload folder as static
-const __dirname = path.resolve(); // Set _dirname to current directory
-app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // changed the pathname because the root folder would not accept /uploads previous running from backend package json ../uploads
-
-
-// Connect to Postgres Database by creating a table
-// Initialize the usersModel
- initUserModel();
-
- initProjectModel();
-
- initContactModel();
-
 // Users
 app.use("/api/users", userRoute);
 
@@ -97,6 +84,18 @@ app.use("/api/contacts", contactRoute);
 // Upload Photos
 app.use("/api/uploads", uploadRoutes);
 
+// Set upload folder as static
+const __dirname = path.resolve(); // Set _dirname to current directory
+app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // changed the pathname because the root
+// folder would not accept /uploads previous running from backend package json ../uploads
+
+// Connect to Postgres Database by creating a table
+// Initialize the usersModel
+ initUserModel();
+
+ initProjectModel();
+
+ initContactModel();
 
 // Error Handler
 app.use(notFound);

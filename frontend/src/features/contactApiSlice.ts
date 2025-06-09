@@ -22,7 +22,6 @@ export const contactApiSlice = apiSlice.injectEndpoints({
             keepUnusedDataFor: 5,
         }),
 
-
         getMyContacts: builder.query({
             query: (userId) => ({
                 url: `${CONTACTS_URL}/${userId}/myContacts`,

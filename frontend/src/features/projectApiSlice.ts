@@ -33,7 +33,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
               url: `${PROJECT_URL}/${id}`,
               method: "GET",
           }),
-           keepUnusedDataFor: 5,
+           keepUnusedDataFor: 30,
        }),
         getMyProject: builder.query({
             query: (userId) => ({

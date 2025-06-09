@@ -7,6 +7,8 @@ import HomeMainScreen from "./screens/HomeMainScreen";
 import TopNavigation from "./components/TopNavigation";
 import ProjectScreen from "./screens/ProjectScreen";
 import ProjectDetailScreen from "./screens/ProjectDetailScreen";
+import ProjectTableScreen from "./screens/ProjectTableScreen";
+import ContactTableScreen from "./screens/ContactTableScreen";
 
 export default function App() {
   return (
@@ -22,6 +24,10 @@ export default function App() {
               <Route path={"/register"} index={true} element={<RegisterScreen />} />
               <Route path={"/projects"} element={<ProjectScreen />} />
               <Route path={"/projects/:id"} element={<ProjectDetailScreen />} />
+
+
+              <Route path={"/admin/projecttable"} element={<ProjectTableScreen />} />
+              <Route path={"/admin/contacttable"} element={<ContactTableScreen />} />
 
           </Routes>
 
