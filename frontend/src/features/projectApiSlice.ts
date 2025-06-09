@@ -28,13 +28,13 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
             //@ts-ignore
             providesTags: ["projects"],
         }),
-        getProject: builder.query({
-            query: (projectId) => ({
-                url: `${PROJECT_URL}/${projectId}`,
-                method: "GET",
-            }),
-            keepUnusedDataFor: 5,
-        }),
+       getProject: builder.query({
+          query: (id) => ({
+              url: `${PROJECT_URL}/${id}`,
+              method: "GET",
+          }),
+           keepUnusedDataFor: 5,
+       }),
         getMyProject: builder.query({
             query: (userId) => ({
                 url: `${PROJECT_URL}/${userId}/myProjects`,

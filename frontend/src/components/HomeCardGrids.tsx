@@ -25,7 +25,7 @@ export default function HomeCardGrids() {
                                  className={"bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300" +
                                      "group relative cursor-pointer my-2 hover:translate-y-[-5px] transition-all duration-300"}
                             >
-                                <card.icon className={"size-6 text-green-600"}/>
+                                <card.icon className={"size-6 text-yellow-400"}/>
                                 <h2 className={"text-xl font-bold text-blue-800 mb-2"}>{card.headline}</h2>
 
                                 <p className={"text-gray-700 font-semibold"}>{card.description}</p>

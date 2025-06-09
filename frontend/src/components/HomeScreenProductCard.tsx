@@ -18,7 +18,7 @@ export default function HomeScreenProductCard() {
                                          className="size-full object-cover"/>
                                 </div>
                                 <h3 className="mt-4 text-lg text-gray-700 font-semibold">
-                                    <a href={"/products"}>
+                                    <a href={"/projects"}>
                                         <span className="absolute inset-0"/>
                                         {product.name}
                                     </a>

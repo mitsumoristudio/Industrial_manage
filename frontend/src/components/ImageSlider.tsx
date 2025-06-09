@@ -58,7 +58,7 @@ export default function ImageSlider() {
                             </h2>
 
                             <a
-                                href="/products"
+                                href="/projects"
                                 className="mt-8 block w-full rounded-md border border-transparent hover:scale-110 transition-all duration-500 bg-white px-10 py-4 text-base font-medium cursor-pointer text-black hover:bg-gray-100 sm:w-auto"
                             >
                                 See More

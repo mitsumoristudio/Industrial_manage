@@ -1,5 +1,5 @@
 
-import {mockShoppingData,} from "../mockdata/mockShoppingData";
+import {mockImageProjectData,} from "../mockdata/mockImageProjectData";
 import {MdChevronLeft, MdChevronRight} from "react-icons/md";
 
 export default function ImageCarousel() {
@@ -26,10 +26,11 @@ export default function ImageCarousel() {
                 <div id={"slider"}
                      key={"slider"}
                      className={"w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"}>
-                    {mockShoppingData.map((item) => {
+                    {mockImageProjectData.map((item, index) => {
                         return (
                             <img alt={"image-name1"}
                                  src={item.imageSrc}
+                                 key={`${item.id}-${index}`}
                                  className={"w-[220px] rounded-xl inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"}
                             />
                         )

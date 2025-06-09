@@ -6,12 +6,14 @@ import {useGetAllProjectsQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
 import ShippingFooter from "../components/ShippingFooter";
 import ImageCarousel from "../components/ImageCarousel";
+import {useNavigate} from "react-router-dom";
 
 
 
 export default function ProjectScreen() {
     const {keyword} = useParams();
     const {data: projects, isLoading, isError} = useGetAllProjectsQuery({keyword});
+    const navigate = useNavigate();
 
     return (
         <>
@@ -27,13 +29,16 @@ export default function ProjectScreen() {
                             {isError}
                         </div>
                     ) : (
+                        // Project Card
                         <section className={"mx-auto"}>
-                            <div className={"-mx-px grid grid-cols-2 border-spacing-1 gap-2 border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4"}>
+                            <div className={"-mx-px grid grid-cols-2 cursor-pointer border-spacing-1 max-h-100 py-2 gap-2 border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4"}
+                                            >
                                 {projects?.data.map((project, index) => {
                                     return (
 
                                             <div key={`${project}-${index}`}
-                                                className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+                                                 onClick={() => navigate(`/projects/${project.id}`)}
+                                                className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-400 hover:-translate-y-1 flex flex-col">
                                                 <div className="relative">
                                                     <img src={project.image} alt={project.title}
                                                          className="w-full h-56 object-cover"/>
@@ -44,7 +49,10 @@ export default function ProjectScreen() {
                                                         {project.jobnumber}</span>
                                                 </div>
                                                 <div className="p-6 flex-grow flex flex-col">
-                                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{project.name}</h3>
+                                                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                                        <a href={`/projects/${project.id}`} key={project.id}>
+                                                        </a>
+                                                        {project.name}</h3>
                                                     <p className="text-gray-600 flex-grow">{project.description}</p>
                                                 </div>
                                             </div>
