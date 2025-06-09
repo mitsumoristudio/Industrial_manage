@@ -9,6 +9,7 @@ export default async function initProjectModel() {
                     name VARCHAR(255) NOT NULL,
                     description TEXT,
                     address VARCHAR(255),
+                    city_state VARCHAR(255),
                     jobnumber VARCHAR(255),
                     scope_of_work INTEGER,
                     image VARCHAR NOT NULL,

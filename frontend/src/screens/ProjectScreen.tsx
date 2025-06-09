@@ -31,7 +31,8 @@ export default function ProjectScreen() {
                     ) : (
                         // Project Card
                         <section className={"mx-auto"}>
-                            <div className={"-mx-px grid grid-cols-2 cursor-pointer border-spacing-1 max-h-100 py-2 gap-2 border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4"}
+                            <div className={"-mx-px max-h-fit grid grid-cols-2 cursor-pointer border-spacing-1 max-h-100 py-2 gap-2 " +
+                                "border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4"}
                                             >
                                 {projects?.data.map((project, index) => {
                                     return (

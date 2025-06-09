@@ -72,7 +72,7 @@ export default function ProjectTableScreen() {
                         </div>
 
                         <div className={"flex flex-row gap-4 mx-2"}>
-                            <Link to="/admin/addProduct">
+                            <Link to="/admin/addProject">
                                 <button
                                     className={" right-2 mt-1 bg-blue-800 text-white text-md px-4 py-3 rounded-3xl shadow-md cursor-pointer " +
                                         "hover:scale-110 transition-all duration-500"}>
@@ -110,13 +110,17 @@ export default function ProjectTableScreen() {
                                     Address
                                 </th>
                                 <th className='px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-wider'>
+                                    City, State
+                                </th>
+                                <th className='px-6 py-3 text-left text-sm font-medium text-white uppercase tracking-wider'>
                                     Contact
                                 </th>
+
                             </tr>
                             </thead>
 
                             <tbody className='divide-y divide-gray-700'>
-                            {filterProject?.data.map((project :any, index) => (
+                            {filterProject?.data.map((project: any, index) => (
                                 <motion.tr
                                     key={`${project.id}-${index}`}
                                     initial={{opacity: 0}}
@@ -155,14 +159,18 @@ export default function ProjectTableScreen() {
                                     </td>
 
                                     <td className='px-6 py-4 whitespace-nowrap'>
+                                        <div className='text-sm text-gray-300'>{project.city_state}</div>
+                                    </td>
+
+                                    <td className='px-6 py-4 whitespace-nowrap'>
                                         <div className='text-sm text-gray-300'>{project.job_contact_name}</div>
                                     </td>
 
                                     <td className='px-6 py-4 whitespace-nowrap'>
-									{/*<span*/}
-                                    {/*    className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-600 text-blue-100'>*/}
-									{/*	{project.category}*/}
-									{/*</span>*/}
+                                        {/*<span*/}
+                                        {/*    className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-600 text-blue-100'>*/}
+                                        {/*	{project.category}*/}
+                                        {/*</span>*/}
                                     </td>
 
 

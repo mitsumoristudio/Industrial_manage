@@ -9,6 +9,8 @@ import ProjectScreen from "./screens/ProjectScreen";
 import ProjectDetailScreen from "./screens/ProjectDetailScreen";
 import ProjectTableScreen from "./screens/ProjectTableScreen";
 import ContactTableScreen from "./screens/ContactTableScreen";
+import UserTableScreen from "./screens/UserTableScreen";
+import AddProjectPage from "./screens/AddProjectPage";
 
 export default function App() {
   return (
@@ -28,6 +30,8 @@ export default function App() {
 
               <Route path={"/admin/projecttable"} element={<ProjectTableScreen />} />
               <Route path={"/admin/contacttable"} element={<ContactTableScreen />} />
+              <Route path={"/admin/usertable"} element={<UserTableScreen />} />
+              <Route path={"/admin/addProject"} element={<AddProjectPage/>} />
 
           </Routes>
 

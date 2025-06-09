@@ -60,6 +60,8 @@ export const createProject = asyncHandler(async (req, res) => {
         description,
         address,
         jobnumber,
+        job_contact_name,
+        city_state,
         scope_of_work,
         image,
         company_name,
@@ -76,10 +78,11 @@ export const createProject = asyncHandler(async (req, res) => {
     try {
         const newProject = await sql`
             INSERT INTO projects (
-                name, description, address, jobnumber, scope_of_work, image, company_name, users_id
+                name, description, address, jobnumber, scope_of_work, image, company_name, users_id, job_contact_name, city_state
             ) 
             VALUES (
-                ${name}, ${description}, ${address}, ${jobnumber}, ${scope_of_work}, ${image}, ${company_name}, ${users_id}
+                ${name}, ${description}, ${address}, ${jobnumber}, ${scope_of_work}, ${image}, ${company_name}, ${users_id},
+                    ${job_contact_name}, ${city_state}
             )
             RETURNING *;
         `;

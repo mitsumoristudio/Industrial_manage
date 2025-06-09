@@ -2,9 +2,10 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useGetProjectQuery} from "../features/projectApiSlice";
 import CustomLoader from "../components/CustomLoader";
-import { FaCircleArrowLeft, FaBuilding, FaMoneyCheckDollar, FaMapLocationDot } from "react-icons/fa6";
+import { FaCircleArrowLeft, FaBuilding, FaMoneyCheckDollar, FaMapLocationDot, FaEarthAmericas } from "react-icons/fa6";
 import { BsPersonVcardFill } from "react-icons/bs";
-import Meta from "../components/Meta";
+import { BsFillBuildingFill } from "react-icons/bs";
+
 
 
 export default function ProjectDetailScreen() {
@@ -16,7 +17,6 @@ export default function ProjectDetailScreen() {
     const onBackHandler = () => {
         navigate("/projects");
     }
-
 
 
     return (
@@ -42,7 +42,7 @@ export default function ProjectDetailScreen() {
 
                                 <div className="relative">
                                     <img src={project.data.image} alt={project.data.name}
-                                         className="w-full h-56 object-cover"/>
+                                         className="w-full h-96 py-1 rounded-lg object-cover shadow-md"/>
                                     <div
                                         className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300"></div>
                                     <span
@@ -81,11 +81,25 @@ export default function ProjectDetailScreen() {
                                             <span className={"m-1 font-light"}>{project.data.address}</span>
                                         </li>
                                         <li className={"flex items-center text-gray-800 font-medium"}>
+                                            <FaEarthAmericas size={20}/>
+                                            <strong className={"mx-1"}>
+                                                City, State:
+                                            </strong>
+                                            <span className={"m-1 font-light"}>{project.data.city_state}</span>
+                                        </li>
+                                        <li className={"flex items-center text-gray-800 font-medium"}>
                                             <BsPersonVcardFill size={20}/>
                                             <strong className={"mx-1"}>
                                                 Contact:
                                             </strong>
                                             <span className={"m-1 font-light"}>{project.data.job_contact_name}</span>
+                                        </li>
+                                        <li className={"flex items-center text-gray-800 font-medium"}>
+                                            <BsFillBuildingFill size={20}/>
+                                            <strong className={"mx-1"}>
+                                                Market:
+                                            </strong>
+                                            <span className={"m-1 font-light"}>Commercial</span>
                                         </li>
                                     </ul>
                                 </div>

@@ -166,7 +166,6 @@ export default function ContactTableScreen() {
                             ))}
                             </tbody>
 
-
                         </table>
 
                     </div>
