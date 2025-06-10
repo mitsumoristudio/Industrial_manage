@@ -1,14 +1,16 @@
-import ImageCarousel from "../components/ImageCarousel";
+
 import ImageSlider from "../components/ImageSlider";
 import HomeCardGrids from "../components/HomeCardGrids";
 import HomeScreenProductCard from "../components/HomeScreenProductCard";
 import {NavLink} from "react-router-dom";
 import Footer from "../components/Footer";
+import {ReactTitle} from "react-meta-tags"
 
 
 export default function HomeMainScreen() {
     return (
         <>
+            <ReactTitle title={"Home Page"} />
             <ImageSlider/>
             <HomeCardGrids/>
 

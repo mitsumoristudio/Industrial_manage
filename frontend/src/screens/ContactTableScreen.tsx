@@ -6,7 +6,7 @@ import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../components/CustomLoader";
-import Meta from "../components/Meta";
+import {ReactTitle} from "react-meta-tags"
 import {useGetAllContactsQuery, useDeleteContactMutation} from "../features/contactApiSlice";
 
 
@@ -46,7 +46,7 @@ export default function ContactTableScreen() {
 
     return (
         <>
-            <Meta title={"Product Table"} />
+            <ReactTitle title="Contact Table Page" />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (
@@ -72,11 +72,11 @@ export default function ContactTableScreen() {
                         </div>
 
                         <div className={"flex flex-row gap-4 mx-2"}>
-                            <Link to="/admin/addProduct">
+                            <Link to="/admin/addContact">
                                 <button
                                     className={" right-2 mt-1 bg-blue-800 text-white text-md px-4 py-3 rounded-3xl shadow-md cursor-pointer " +
                                         "hover:scale-110 transition-all duration-500"}>
-                                    <FaPlus size={16} aria-placeholder={"Create Product"}/>
+                                    <FaPlus size={16} aria-placeholder={"Create Contact"}/>
                                 </button>
                             </Link>
                             <button className={"right-2 mt-1 bg-green-400 text-white text-md px-4 py-3 rounded-3xl shadow-md cursor-pointer " +

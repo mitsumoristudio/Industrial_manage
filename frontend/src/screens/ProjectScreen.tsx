@@ -4,9 +4,10 @@ import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 import {useGetAllProjectsQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
-import ShippingFooter from "../components/ShippingFooter";
+
 import ImageCarousel from "../components/ImageCarousel";
 import {useNavigate} from "react-router-dom";
+import {ReactTitle} from "react-meta-tags"
 
 
 
@@ -17,7 +18,7 @@ export default function ProjectScreen() {
 
     return (
         <>
-            <Meta title={"Main Projects"} />
+            <ReactTitle title="Project Page" />
             <div className={"bg-white mx-auto py-4"}>
                 <div className={"mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8 xl:px-10"}>
                     {isLoading ? (
@@ -32,7 +33,7 @@ export default function ProjectScreen() {
                         // Project Card
                         <section className={"mx-auto"}>
                             <div className={"-mx-px max-h-fit grid grid-cols-2 cursor-pointer border-spacing-1 max-h-100 py-2 gap-2 " +
-                                "border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4"}
+                                "border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4 lg:max-h-fit "}
                                             >
                                 {projects?.data.map((project, index) => {
                                     return (

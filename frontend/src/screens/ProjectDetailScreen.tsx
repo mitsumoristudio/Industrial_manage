@@ -5,6 +5,7 @@ import CustomLoader from "../components/CustomLoader";
 import { FaCircleArrowLeft, FaBuilding, FaMoneyCheckDollar, FaMapLocationDot, FaEarthAmericas } from "react-icons/fa6";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BsFillBuildingFill } from "react-icons/bs";
+import {ReactTitle} from "react-meta-tags"
 
 
 
@@ -21,7 +22,7 @@ export default function ProjectDetailScreen() {
 
     return (
         <main>
-
+            <ReactTitle title="Project Detail Page" />
             <div className={"bg-white mx-auto max-w-7xl overflow-hidden sm: px-6 lg: px-8"}>
                 {isLoading ? (
                     <div className={"py-6 mb-2"}>

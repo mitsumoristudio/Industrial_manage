@@ -8,7 +8,7 @@ import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../components/CustomLoader";
 import {useGetAllProjectsQuery, useDeleteProjectMutation} from "../features/projectApiSlice";
-import Meta from "../components/Meta";
+import {ReactTitle} from "react-meta-tags"
 
 export default function ProjectTableScreen() {
     const {keyword, pageNumber} = useParams();
@@ -46,7 +46,7 @@ export default function ProjectTableScreen() {
 
     return (
         <>
-            <Meta title={"Product Table"} />
+            <ReactTitle title={"Project Table Page"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

@@ -94,7 +94,7 @@ export default function AddProjectPage() {
                   onSubmit={onSubmitHandler}
             >
                 <div
-                    className={"flex flex-col gap-2 m-auto items-start rounded-lg p-5 min-w-[460px] sm: min-w-280 border rounded-xl" +
+                    className={"flex flex-col gap-2 m-auto items-start rounded-lg p-5 max-w-[600px] sm: min-w-280 border rounded-xl" +
                         "text-zinc-700 text-sm shadow-lg "}
                 >
                     <h1 className={"text-2xl font-semibold text-center text-gray-800"}
