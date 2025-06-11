@@ -175,7 +175,7 @@ export default function ProjectTableScreen() {
 
 
                                     <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-                                        <Link to={`/admin/projects/${project.id}/edit`}>
+                                        <Link to={`/admin/projects/edit/${project.id}`}>
                                             <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>
                                         </Link>
 

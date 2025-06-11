@@ -53,8 +53,8 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
             invalidatesTags: ['projects'], // add invalidatesTag as Products for the refresh to work
         }),
         updateProject: builder.mutation(({
-            query: (data) => ({
-                url: `${PROJECT_URL}/${data.projectId}`,
+            query: (data: any) => ({
+                url: `${PROJECT_URL}/${data.id}`,
                 method: "PUT",
                 body: data,
             }),

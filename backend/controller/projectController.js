@@ -13,21 +13,23 @@ export const updateProject = asyncHandler(async (req, res) => {
         address,
         jobnumber,
         scope_of_work,
+        city_state,
         image,
         company_name,
+        job_contact_name,
     } = req.body;
 
     try {
         // Check if project exists in database
-        const existingProject = await sql`
-            SELECT * FROM projects WHERE id = ${id}
-            `;
-        if (existingProject.length === 0) {
-            return res.status(404).json({success: false,
-                                         message: "Project not found"}
-            )
-        }
-        // Update the Project
+        // const existingProject = await sql`
+        //     SELECT * FROM projects WHERE id = ${id}
+        //     `;
+        // if (existingProject.length === 0) {
+        //     return res.status(404).json({success: false,
+        //                                  message: "Project not found"}
+        //     )
+        // }
+        // Update the Project - No comma before WHERE
         const updatedProject = await sql`
             UPDATE projects
             SET name = ${name},
@@ -36,7 +38,9 @@ export const updateProject = asyncHandler(async (req, res) => {
                 jobnumber = ${jobnumber},
                 scope_of_work = ${scope_of_work},
                 image = ${image},
-                company_name = ${company_name}
+                city_state = ${city_state},
+                company_name = ${company_name},
+                job_contact_name = ${job_contact_name}
                 WHERE id = ${id}
                 RETURNING *;
             `;

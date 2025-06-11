@@ -1,21 +1,21 @@
 // @ts-ignore
 import React from 'react';
 // @ts-ignore
-import ReactDOM from 'react-dom/client';
+
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {HelmetProvider} from "react-helmet-async";
 import {Provider} from 'react-redux';
 import store from "./store";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const container = document.getElementById('root');
+const root = createRoot(container)
 root.render(
     <React.StrictMode>
         <HelmetProvider>
             <Provider store={store}>
-                    <App />
+                <App />
             </Provider>
         </HelmetProvider>
     </React.StrictMode>

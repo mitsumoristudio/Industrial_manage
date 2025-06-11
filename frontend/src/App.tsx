@@ -13,6 +13,7 @@ import UserTableScreen from "./screens/UserTableScreen";
 // import AddProjectPage from "./screens/AddProjectPage";
 import AddProjectScreen from "./screens/AddProjectScreen";
 import AddContactPage from "./screens/AddContactPage";
+import {AddProjectEditPage} from "./screens/AddProjectEditPage";
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
               <Route path={"/admin/usertable"} element={<UserTableScreen />} />
               <Route path={"/admin/addProject"} element={<AddProjectScreen/>} />
               <Route path={"/admin/addContact"} element={<AddContactPage />} />
+              <Route path={"/admin/projects/edit/:id"} element={<AddProjectEditPage />} />
 
 
 
