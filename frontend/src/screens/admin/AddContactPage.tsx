@@ -3,8 +3,8 @@ import {useState} from "react";
 import {toast} from "react-toastify";
 import {Link, useNavigate,} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {useCreateContactMutation } from "../features/contactApiSlice";
-import {Field, Label, Textarea} from "@headlessui/react";
+import {useCreateContactMutation } from "../../features/contactApiSlice";
+import {ReactTitle} from "react-meta-tags"
 
 export default function AddContactPage() {
     // @ts-ignore
@@ -39,6 +39,7 @@ export default function AddContactPage() {
 
     return (
         <>
+            <ReactTitle title="Add Contact" />
             <form className={'min-h-[80vh] w-full flex items-center p-2'}
                   onSubmit={onSubmitHandler}
             >
@@ -57,7 +58,7 @@ export default function AddContactPage() {
                         >Contact Name</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter contact name"}
-                               type={name}
+                               type={"name"}
                                value={name}
                                required={true}
                                data-cx={"input-name"}
@@ -70,7 +71,7 @@ export default function AddContactPage() {
                         >Email</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter email"}
-                               type={email}
+                               type={"email"}
                                value={email}
                                required={true}
                                data-cx={"input-email"}
@@ -83,7 +84,7 @@ export default function AddContactPage() {
                         >Company</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter Company"}
-                               type={company}
+                               type={"company"}
                                value={company}
                                required={true}
                                data-cx={"input-company"}
@@ -96,7 +97,7 @@ export default function AddContactPage() {
                         >Position</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter position"}
-                               type={position}
+                               type={"position"}
                                value={position}
                                required={true}
                                data-cx={"input-position"}
@@ -109,7 +110,7 @@ export default function AddContactPage() {
                         >Phone Number</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"(123)-453-2399"}
-                               type={phone}
+                               type={"phone"}
                                value={phone}
                                required={false}
                                data-cx={"input-phone"}

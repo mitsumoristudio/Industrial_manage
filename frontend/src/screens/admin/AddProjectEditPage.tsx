@@ -2,9 +2,9 @@ import  {useState, useEffect} from 'react'
 import {toast} from 'react-toastify'
 import {useSelector} from 'react-redux'
 import {ReactTitle} from "react-meta-tags"
-import {useUploadProjectImageMutation, useUpdateProjectMutation, useGetProjectQuery} from "../features/projectApiSlice";
+import {useUploadProjectImageMutation, useUpdateProjectMutation, useGetProjectQuery} from "../../features/projectApiSlice";
 import {useNavigate, useParams} from "react-router-dom";
-import CustomLoader from "../components/CustomLoader";
+import CustomLoader from "../../components/CustomLoader";
 import {FaCircleArrowLeft} from "react-icons/fa6";
 
 
@@ -122,7 +122,7 @@ export const AddProjectEditPage = () => {
             ) : isError ? (
                 <div className={"text-red-600"}>Error Loading Project Data</div>
             ) : (
-                <>
+                <main>
                     <button className={"my-2 mx-2 "}
                             onClick={() => onBackHandler()}>
                         <FaCircleArrowLeft size={36}/>
@@ -280,7 +280,7 @@ export const AddProjectEditPage = () => {
                             </button>
                         </form>
                     </section>
-                </>
+                </main>
             )}
         </>
     )

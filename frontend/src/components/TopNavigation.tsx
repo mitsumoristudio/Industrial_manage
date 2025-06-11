@@ -110,7 +110,7 @@ export default function TopNavigation() {
                                 </div>
 
                                 {/* User Login for now */}
-                                {userInfo && (
+                                {userInfo &&  (
                                     <div className={"flex items-center gap-3 cursor-pointer group relative"}>
                                         <RiAdminLine size={26}/>
                                         <div

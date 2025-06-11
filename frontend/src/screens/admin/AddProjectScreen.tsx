@@ -7,7 +7,7 @@ import {ReactTitle} from "react-meta-tags"
 import {
     useCreateProjectMutation,
     useUploadProjectImageMutation
-} from "../features/projectApiSlice";
+} from "../../features/projectApiSlice";
 
 
 // @ts-ignore

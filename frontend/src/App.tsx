@@ -8,12 +8,13 @@ import TopNavigation from "./components/TopNavigation";
 import ProjectScreen from "./screens/ProjectScreen";
 import ProjectDetailScreen from "./screens/ProjectDetailScreen";
 import ProjectTableScreen from "./screens/ProjectTableScreen";
-import ContactTableScreen from "./screens/ContactTableScreen";
-import UserTableScreen from "./screens/UserTableScreen";
-// import AddProjectPage from "./screens/AddProjectPage";
-import AddProjectScreen from "./screens/AddProjectScreen";
-import AddContactPage from "./screens/AddContactPage";
-import {AddProjectEditPage} from "./screens/AddProjectEditPage";
+import ContactTableScreen from "./screens/admin/ContactTableScreen";
+import UserTableScreen from "./screens/admin/UserTableScreen";
+import AddProjectScreen from "./screens/admin/AddProjectScreen";
+import AddContactPage from "./screens/admin/AddContactPage";
+import {AddProjectEditPage} from "./screens/admin/AddProjectEditPage";
+import AddContactEditPage from "./screens/admin/AddContactEditPage";
+import EditUserScreen from "./screens/admin/EditUserScreen";
 
 export default function App() {
   return (
@@ -36,6 +37,8 @@ export default function App() {
               <Route path={"/admin/addProject"} element={<AddProjectScreen/>} />
               <Route path={"/admin/addContact"} element={<AddContactPage />} />
               <Route path={"/admin/projects/edit/:id"} element={<AddProjectEditPage />} />
+              <Route path={"/admin/contacts/edit/:id"} element={<AddContactEditPage />} />
+              <Route path={"/admin/users/edit/:id"} element={<EditUserScreen />} />
 
 
 

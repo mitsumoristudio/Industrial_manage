@@ -47,7 +47,7 @@ export const contactApiSlice = apiSlice.injectEndpoints({
         }),
         updateContact: builder.mutation(({
             query: (data) => ({
-                url: `${CONTACTS_URL}/${data.contactId}`,
+                url: `${CONTACTS_URL}/${data.id}`,
                 method: "PUT",
                 body: data,
             }),

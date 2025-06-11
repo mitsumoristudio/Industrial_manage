@@ -5,9 +5,9 @@ import { FaPlus } from "react-icons/fa";
 import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
-import CustomLoader from "../components/CustomLoader";
+import CustomLoader from "../../components/CustomLoader";
 import {ReactTitle} from "react-meta-tags"
-import {useGetAllContactsQuery, useDeleteContactMutation} from "../features/contactApiSlice";
+import {useGetAllContactsQuery, useDeleteContactMutation} from "../../features/contactApiSlice";
 
 
 
@@ -154,7 +154,7 @@ export default function ContactTableScreen() {
                                     </td>
 
                                     <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-                                        <Link to={`/admin/contacts/${contact.id}/edit`}>
+                                        <Link to={`/admin/contacts/edit/${contact.id}`}>
                                             <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>
                                         </Link>
 

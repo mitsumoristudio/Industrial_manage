@@ -3,9 +3,10 @@ import {useState} from "react";
 import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import {toast} from "react-toastify";
-import Meta from "../components/Meta";
-import CustomLoader from "../components/CustomLoader";
-import {useGetAllUsersQuery, useDeleteUserMutation} from "../features/userApiSlice";
+import CustomLoader from "../../components/CustomLoader";
+import {useGetAllUsersQuery, useDeleteUserMutation} from "../../features/userApiSlice";
+import {Link} from "react-router-dom";
+import {ReactTitle} from "react-meta-tags"
 
 export default function UserTableScreen() {
     const {data: users, isLoading, isError, refetch} = useGetAllUsersQuery();
@@ -36,11 +37,11 @@ export default function UserTableScreen() {
 
     return (
         <>
-            <Meta title={"Users Table"} />
+            <ReactTitle title="Users Table" />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (
-                <div>{isError?.data?.message || isError.error}</div>
+                <div>Error with loading User Table</div>
             ) : loadingDelete ? (
                     <CustomLoader />
                 ) :
@@ -132,6 +133,10 @@ export default function UserTableScreen() {
                                         </td>
 
                                         <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
+
+                                            <Link to={`/admin/users/edit/${user.id}`}>
+                                                <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>
+                                            </Link>
 
                                             <button className='text-red-400 hover:text-red-300'
                                                     onClick={() => deleteHandler(user.id)}>Delete
