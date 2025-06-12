@@ -12,10 +12,11 @@ export const protectRoutes = asyncHandler(async (req, res, next) => {
     if (token) {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET_TOKEN);
+            console.log("Decoded jwt token", decoded);
 
-            req.user = await sql`
+            req.user = (await sql`
                 SELECT * FROM users WHERE id = ${decoded.id}
-            `;
+            `)[0];
 
             next();
         } catch (error) {
@@ -30,7 +31,15 @@ export const protectRoutes = asyncHandler(async (req, res, next) => {
 })
 
 export const admin = (req, res, next) => {
-    if (req.user && req.user.isAdmin) {
+
+    console.log("Authenticated user", req.user);
+    console.log("Admin check:", req.user?.is_admin);
+    if (!req.user) {
+        res.status(401);
+        throw new Error('Unauthorized, user was not found');
+    }
+
+    if (req.user && req.user.is_admin) {
         next();
     } else {
         res.status(401);

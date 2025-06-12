@@ -1,5 +1,4 @@
 
-import CustomLoader from "./CustomLoader";
 import {mockHomeProjects} from "../mockdata/mockHomeProjects";
 
 export default function HomeScreenProductCard() {

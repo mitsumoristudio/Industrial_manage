@@ -20,7 +20,7 @@ export default function CreateProjectScreen() {
     const [description, setDescription] = useState<string>("");
     const [city_state, setCity_state] = useState<string>("")
     const [contactPerson, setContactPerson] = useState<string>("");
-    const [id, setId] = useState<number>(0);
+
 
     const [image, setImage] = useState<string>("");
 
@@ -56,15 +56,6 @@ export default function CreateProjectScreen() {
         }
     }
 
-    const handleIDNumChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = e.target.value;
-        const parsedValue = newValue === "" ? "" : parseFloat(newValue)
-
-        if (!isNaN(parsedValue as number) || newValue === "") {
-            // @ts-ignore
-            setId(parsedValue)
-        }
-    }
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();

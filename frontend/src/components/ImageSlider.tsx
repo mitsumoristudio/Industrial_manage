@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import { Pause, Play } from "lucide-react";
-import {assets} from "../assets/assets";
+// import {assets} from "../assets/assets";
 
 export default function ImageSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);

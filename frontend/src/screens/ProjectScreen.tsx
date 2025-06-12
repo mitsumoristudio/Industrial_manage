@@ -1,7 +1,6 @@
 
 import CustomLoader from "../components/CustomLoader";
 import Footer from "../components/Footer";
-import Meta from "../components/Meta";
 import {useGetAllProjectsQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
 

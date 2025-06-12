@@ -46,8 +46,10 @@ export const authenticateUser = async (req, res) => {
 
         res.json({
         success: true,
-        id: user.id,
-        email: user.email,
+            id: user.id,
+            name: user.name,
+            is_admin: user.is_admin,
+            email: user.email,
     })
         console.log("User successfully logged in")
 } else {

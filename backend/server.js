@@ -14,6 +14,7 @@ import userRoute from "./routes/userRoute.js";
 import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -71,6 +72,10 @@ app.use(async  (req, res, next) => {
         next(error);
     }
 })
+
+// Cookie Parser Middleware
+// This needs to be added for JWT and localstorage to work together for caching userInfo
+app.use(cookieParser());
 
 // Users
 app.use("/api/users", userRoute);

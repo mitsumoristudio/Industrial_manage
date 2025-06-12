@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {TrafficCone, Menu, X, CircleUserRound,} from "lucide-react";
+import { Menu, X, CircleUserRound,} from "lucide-react";
 import { RiAdminLine, RiUser2Fill } from "react-icons/ri";
 import SearchBar from "./SearchBar";
 import {useSelector, useDispatch } from "react-redux";
@@ -89,6 +89,10 @@ export default function TopNavigation() {
                                                         My Projects
                                                     </NavLink>
 
+                                                    <NavLink className={"hover:text-blue-500"} to={"/profile"}>
+                                                        Settings
+                                                    </NavLink>
+
                                                     <NavLink
                                                         className={"hover:text-blue-500"}
                                                         to={"/logout"}
@@ -110,7 +114,7 @@ export default function TopNavigation() {
                                 </div>
 
                                 {/* User Login for now */}
-                                {userInfo &&  (
+                                {userInfo && userInfo.is_admin && (
                                     <div className={"flex items-center gap-3 cursor-pointer group relative"}>
                                         <RiAdminLine size={26}/>
                                         <div
