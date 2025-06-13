@@ -81,11 +81,11 @@ export default function TopNavigation() {
                                             <div
                                                 className={"absolute top-0 right-0 pt-16 text-base font-medium text-gray-800 z-20 hidden group-hover:block"}>
                                                 <div className={"min-w-48 bg-stone-100 rounded flex flex-col gap-3 p-3"}>
-                                                    <NavLink className={"hover:text-blue-500"} to={"/myContacts"}>
+                                                    <NavLink className={"hover:text-blue-500"} to={`/${userInfo.id}/myContacts`}>
                                                         My Contacts
                                                     </NavLink>
 
-                                                    <NavLink className={"hover:text-blue-500"} to={"/myProjects"}>
+                                                    <NavLink className={"hover:text-blue-500"} to={`/${userInfo.id}/myProjects`}>
                                                         My Projects
                                                     </NavLink>
 

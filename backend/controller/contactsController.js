@@ -145,7 +145,8 @@ export const deleteContact = asyncHandler(async (req, res) => {
 // @route POST /api/contacts/myProject
 // @access Private/Admin
 export const getMyContacts = asyncHandler(async (req, res) => {
-    const contactId = req.params.id;
+  //  const contactId = req.params.id;
+    const { id: contactId } = req.params;
 
     if (isNaN(contactId)) {
         return res.status(400).json({ success: false, message: "Invalid user ID" });
