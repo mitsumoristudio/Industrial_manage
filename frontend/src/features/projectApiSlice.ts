@@ -90,6 +90,7 @@ export const {
     useGetAllProjectsQuery,
     //@ts-ignore
     useGetProjectPaginationQuery,
+    useGetMyProjectQuery,
     useGetProjectQuery,
     useCreateProjectMutation,
     useUpdateProjectMutation,

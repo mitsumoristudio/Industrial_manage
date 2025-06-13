@@ -17,6 +17,7 @@ import AddContactEditPage from "./screens/admin/AddContactEditPage";
 import EditUserScreen from "./screens/admin/EditUserScreen";
 import SettingsScreen from "./screens/admin/SettingsScreen";
 import MyContactScreen from "./screens/admin/MyContactScreen";
+import MyProjectScreen from "./screens/admin/MyProjectScreen";
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
               <Route path={"/projects/:id"} element={<ProjectDetailScreen />} />
               <Route path={"/profile"} element={<SettingsScreen />} />
               <Route path={"/:id/myContacts"} element={<MyContactScreen />} />
+              <Route path={"/:id/myProjects"} index={true} element={<MyProjectScreen />} />
 
               <Route path={"/admin/projecttable"} element={<ProjectTableScreen />} />
               <Route path={"/admin/contacttable"} element={<ContactTableScreen />} />
