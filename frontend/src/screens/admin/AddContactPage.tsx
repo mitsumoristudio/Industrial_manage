@@ -48,7 +48,7 @@ export default function AddContactPage() {
                         "text-zinc-700 text-sm shadow-lg "}
                 >
                     <h1 className={"text-2xl font-semibold text-center text-gray-800"}
-                        data-cy={"addProduct-title"}
+                        data-cy={"add-contact"}
                     >Add New Contact
                     </h1>
 
@@ -61,7 +61,8 @@ export default function AddContactPage() {
                                type={"name"}
                                value={name}
                                required={true}
-                               data-cx={"input-name"}
+                               data-cy={"contact_name"}
+                               data-cx={"input-contact"}
                                onChange={(e) => setName(e.target.value)}/>
                     </div>
 
@@ -74,6 +75,7 @@ export default function AddContactPage() {
                                type={"email"}
                                value={email}
                                required={true}
+                               data-cy={"email"}
                                data-cx={"input-email"}
                                onChange={(e) => setEmail(e.target.value)}/>
                     </div>
@@ -87,6 +89,7 @@ export default function AddContactPage() {
                                type={"company"}
                                value={company}
                                required={true}
+                               data-cy={"company"}
                                data-cx={"input-company"}
                                onChange={(e) => setCompany(e.target.value)}/>
                     </div>
@@ -100,6 +103,7 @@ export default function AddContactPage() {
                                type={"position"}
                                value={position}
                                required={true}
+                               data-cy={"position"}
                                data-cx={"input-position"}
                                onChange={(e) => setPosition(e.target.value)}/>
                     </div>
@@ -113,6 +117,7 @@ export default function AddContactPage() {
                                type={"phone"}
                                value={phone}
                                required={false}
+                               data-cy={"phone"}
                                data-cx={"input-phone"}
                                onChange={(e) => setPhone(e.target.value)}/>
                     </div>
@@ -121,7 +126,7 @@ export default function AddContactPage() {
                     <div className={"flex flex-row mx-auto gap-6 my-1"}>
                         <button
                             type="submit"
-                            data-cy={"submit"}
+
                             className="flex max-w-xs  flex-1 items-center justify-center rounded-lg border border-transparent bg-indigo-600 px-8 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                         >
                             Submit
