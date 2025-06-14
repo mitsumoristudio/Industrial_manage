@@ -39,7 +39,7 @@ export default function ProjectScreen() {
 
                                             <div key={`${project}-${index}`}
                                                  onClick={() => navigate(`/projects/${project.id}`)}
-                                                className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-400 hover:-translate-y-1 flex flex-col">
+                                                className="bg-white rounded-lg sm:max-h-96 shadow-md overflow-hidden group transition-transform duration-400 hover:-translate-y-1 flex flex-col">
                                                 <div className="relative">
                                                     <img src={project.image} alt={project.title}
                                                          className="w-full h-56 object-cover"/>
@@ -54,7 +54,7 @@ export default function ProjectScreen() {
                                                         <a href={`/projects/${project.id}`} key={project.id}>
                                                         </a>
                                                         {project.name}</h3>
-                                                    <p className="text-gray-600 flex-grow">{project.description}</p>
+                                                    <p className="text-gray-600 flex-grow max-sm:hidden">{project.description}</p>
                                                 </div>
                                             </div>
                                     )

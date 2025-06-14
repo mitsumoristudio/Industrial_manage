@@ -23,7 +23,10 @@ import deliverybox from "../assets/delivery-box.png"
 import gear_home from "../assets/gear_home.jpg"
 // @ts-ignore
 import construction from "../assets/construction.jpg"
-
+// @ts-ignore
+import aerial_city from "../assets/aerial_city.jpg"
+// @ts-ignore
+import construction_about from "../assets/construction_about.jpg"
 
 export const assets = {
     crane,
@@ -38,4 +41,6 @@ export const assets = {
     truck_icon,
     badge_icon,
     deliverybox,
+    aerial_city,
+    construction_about,
 }

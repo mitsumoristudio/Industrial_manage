@@ -14,7 +14,9 @@ import userRoute from "./routes/userRoute.js";
 import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import contactUsRoute from "./routes/contactUsRoute.js";
 import cookieParser from "cookie-parser";
+// import sgMail from "@sendgrid/mail";
 
 dotenv.config();
 
@@ -88,6 +90,10 @@ app.use("/api/contacts", contactRoute);
 
 // Upload Photos
 app.use("/api/uploads", uploadRoutes);
+
+// ContactUs
+app.use("/api/contactUs", contactUsRoute);
+
 
 // Set upload folder as static
 const __dirname = path.resolve(); // Set _dirname to current directory
