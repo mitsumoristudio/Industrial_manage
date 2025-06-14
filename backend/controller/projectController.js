@@ -165,7 +165,8 @@ export const deleteProject = asyncHandler(async (req, res) => {
 // @route POST /api/projects/myProject
 // @access Private/Admin
 export const getMyProjects = asyncHandler(async (req, res) => {
-    const userId = req.params.id;
+   // const userId = req.params.id;
+    const { id: userId } = req.params;
 
     if (isNaN(userId)) {
         return res.status(400).json({ success: false, message: "Invalid user ID" });
@@ -176,6 +177,7 @@ export const getMyProjects = asyncHandler(async (req, res) => {
             SELECT *
             FROM projects
             WHERE users_id = ${userId}
+            ORDER BY created_at DESC
         `;
         res.status(200).json({success: true, data: projects});
     } catch (error) {
