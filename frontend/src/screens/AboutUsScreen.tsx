@@ -66,7 +66,7 @@ export default function AboutUsScreen() {
                         Contact us today for a free consultation and let's build something great as a team.
                     </p>
                     <a
-                        href="/contact"
+                        href="/contactus"
                         className="inline-block bg-white text-blue-800 font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-100 transition duration-300 transform hover:scale-105 shadow-lg"
                     >
                         Get a Free Quote

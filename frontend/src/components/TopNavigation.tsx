@@ -10,7 +10,7 @@ import {useLogoutMutation} from "../features/userApiSlice";
 const navigationItems = [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contactUs" },
     { label: "About", href: "/about" },
 ];
 
