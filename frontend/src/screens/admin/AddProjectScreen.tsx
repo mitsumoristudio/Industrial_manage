@@ -93,8 +93,8 @@ export default function CreateProjectScreen() {
             </button>
             <section className="bg-white p-8 rounded-xl shadow-xl transform transition duration-500 hover:scale-[1.01]">
 
-
-                <h2 className="text-4xl font-extrabold text-indigo-800 mb-6 border-b-4 border-indigo-300 pb-2 inline-block">
+                <h2 data-cy={"add-title"}
+                    className="text-4xl font-extrabold text-indigo-800 mb-6 border-b-4 border-indigo-300 pb-2 inline-block">
                     Add New Project
                 </h2>
 
@@ -111,6 +111,7 @@ export default function CreateProjectScreen() {
                                type={name}
                                value={name}
                                required={true}
+                               data-cy={"project_name"}
                                data-cx={"input-project"}
                                onChange={(e) => setName(e.target.value)}/>
                     </div>
@@ -124,73 +125,79 @@ export default function CreateProjectScreen() {
                                type={"address"}
                                value={address}
                                required={true}
+                               data-cy={"address"}
                                data-cx={"input-address"}
                                onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className={'w-full'}>
                         <p className={"mb-1 text-lg font-semibold"}
-                           data-cy={"city_state-headline"}
+                           data-cy={"city_headline"}
                         >City, State</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter City, State"}
                                type={"city_state"}
                                value={city_state}
                                required={true}
-                               data-cx={"input-city_state"}
+                               data-cy={"city"}
+                               data-cx={"input_city"}
                                onChange={(e) => setCity_state(e.target.value)}/>
                     </div>
 
                     <div className={'w-full '}>
                         <p className={"mb-1 text-lg font-semibold"}
-                           data-cy={"scopeofwork-headline"}
+                           data-cy={"scope_headline"}
                         >Scope of Work</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter value"}
                                type={"scopeofwork"}
                                value={scopeofwork}
                                required={true}
-                               data-cx={"input-scopeofwork"}
+                               data-cy={"scope_of_work"}
+                               data-cx={"input_scope"}
                                onChange={handleNumChange}
                         />
                     </div>
 
                     <div className={'w-full'}>
                         <p className={"mb-1 text-lg font-semibold"}
-                           data-cy={"company-headline"}
+                           data-cy={"company_headline"}
                         >Company</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter company name"}
                                type={'companyname'}
                                value={companyName}
                                required={true}
-                               data-cx={"input-company"}
+                               data-cy={"company"}
+                               data-cx={"input_company"}
                                onChange={(e) => setCompanyName(e.target.value)}/>
                     </div>
 
                     <div className={'w-full'}>
                         <p className={"mb-1 text-lg font-semibold"}
-                           data-cy={"contact-headline"}
+                           data-cy={"contact_headline"}
                         >Contact</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter contact name"}
                                type={'contact_name'}
                                value={contactPerson}
                                required={true}
-                               data-cx={"input-contact_person"}
+                               data-cy={"contact"}
+                               data-cx={"input_contact"}
                                onChange={(e) => setContactPerson(e.target.value)}/>
                     </div>
 
                     <div className={'w-full'}>
                         <p className={"mb-1 text-lg font-semibold"}
-                           data-cy={"jobnumber-headline"}
+                           data-cy={"job_headline"}
                         >Job Number</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
                                placeholder={"Enter Job Number"}
                                type={"jobnumber"}
                                value={jobnumber}
                                required={true}
-                               data-cx={"input-jobnumber"}
+                               data-cy={"job_number"}
+                               data-cx={"input_job_number"}
                                onChange={(e) => setJobnumber(e.target.value)}/>
                     </div>
 
@@ -221,7 +228,8 @@ export default function CreateProjectScreen() {
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-1">
+                        <label data-cy={"description_headline"}
+                            htmlFor="message" className="block text-lg font-medium text-gray-700 mb-1">
                             Description
                         </label>
                         <textarea
@@ -229,12 +237,15 @@ export default function CreateProjectScreen() {
                             id="description"
                             name="description"
                             rows={5}
+                            data-cy={"description"}
+                            data-cx={"input_description"}
                             placeholder="Your message here..."
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 ease-in-out text-gray-900 placeholder-gray-500 resize-y"
                         ></textarea>
                     </div>
                     <button
                         type="submit"
+
                         className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:-translate-y-0.5"
                     >
                         Submit
