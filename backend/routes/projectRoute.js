@@ -5,12 +5,14 @@ import {updateProject,
         createProject,
         getProject,
         getMyProjects,
+        getProjectsPagination,
         getAllProjects} from "../controller/projectController.js";
 import {admin, protectRoutes} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.route("/").get(getAllProjects);
+router.route("/").get(getProjectsPagination);
+//router.route("/").get(getAllProjects);
 router.route("/:id").get(getProject);
 router.route("/:id").put(protectRoutes, updateProject);
 router.route("/:id").delete(protectRoutes, deleteProject);

@@ -36,6 +36,10 @@ export default function App() {
               <Route path={"/"} index={true} element={<HomeMainScreen />} />
               <Route path={"/login"} index={true} element={<LoginScreen />} />
               <Route path={"/register"} index={true} element={<RegisterScreen />} />
+
+              <Route path={"/projects/search/:keyword"} element={<ProjectScreen />} />
+              <Route path={"projects/search/keyword/page/:pageNumber"} element={<ProjectScreen />} />
+
               <Route path={"/projects"} element={<ProjectScreen />} />
               <Route path={"/projects/:id"} element={<ProjectDetailScreen />} />
               <Route path={"/profile"} element={<SettingsScreen />} />
@@ -47,7 +51,6 @@ export default function App() {
 
               <Route path={"/:id/myProjects"} element={<MyProjectScreen />} />
 
-
               <Route path={"/admin/projecttable"} element={<ProjectTableScreen />} />
               <Route path={"/admin/contacttable"} element={<ContactTableScreen />} />
               <Route path={"/admin/usertable"} element={<UserTableScreen />} />
@@ -56,8 +59,6 @@ export default function App() {
               <Route path={"/admin/projects/edit/:id"} element={<AddProjectEditPage />} />
               <Route path={"/admin/contacts/edit/:id"} element={<AddContactEditPage />} />
               <Route path={"/admin/users/edit/:id"} element={<EditUserScreen />} />
-
-
 
           </Routes>
 

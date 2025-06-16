@@ -123,6 +123,53 @@ export const getAllProjects = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc Fetch products by pagination
+// @route POST /api/projects/
+// @access Public
+export const getProjectsPagination = asyncHandler(async (req, res) => {
+    const page = Number(req.query.pageNumber) || 1;
+    const pageSize = Number(process.env.PAGINATION_PAGE_SIZE) || 8;
+    const keyword = req.query.keyword || "";
+
+    const offset = pageSize * (page - 1);
+
+    let countQuery, dataQuery;
+    let countParams = [], dataParams = [];
+
+    if (keyword) {
+        countQuery = sql`SELECT COUNT(*) FROM projects WHERE name ILIKE ${'%' + keyword + '%'}`;
+        dataQuery = sql`
+            SELECT * FROM projects
+            WHERE name ILIKE ${'%' + keyword + '%'}
+            ORDER BY id
+            LIMIT ${pageSize}
+            OFFSET ${offset}
+        `;
+    } else {
+        countQuery = sql`SELECT COUNT(*) FROM projects`;
+        dataQuery = sql`
+            SELECT * FROM projects
+            ORDER BY id
+            LIMIT ${pageSize}
+            OFFSET ${offset}
+        `;
+    }
+
+    const countResult = await countQuery;
+    const count = Number(countResult[0].count);
+
+    const projects = await dataQuery;
+
+    res.json({
+        success: true,
+        data: projects,
+        page: page,
+        pages: Math.ceil(count / pageSize),
+        totalProjects: count,
+    });
+});
+
+
 // @desc Fetch a single Project
 // @route POST /api/projects/:id
 // @access Public

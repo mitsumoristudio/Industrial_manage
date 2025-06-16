@@ -1,18 +1,19 @@
 
 import CustomLoader from "../components/CustomLoader";
 import Footer from "../components/Footer";
-import {useGetAllProjectsQuery} from "../features/projectApiSlice";
+import {useGetAllProjectsQuery, useGetProjectsPaginationQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
 
 import ImageCarousel from "../components/ImageCarousel";
 import {useNavigate} from "react-router-dom";
 import {ReactTitle} from "react-meta-tags"
-
+import Paginate from "../components/Pagination"
 
 
 export default function ProjectScreen() {
-    const {keyword} = useParams();
-    const {data: projects, isLoading, isError} = useGetAllProjectsQuery({keyword});
+    const {pageNumber, keyword} = useParams();
+    const { data: projects, isLoading, isError} = useGetProjectsPaginationQuery({pageNumber, keyword});
+  //  const {data: projects, isLoading, isError} = useGetAllProjectsQuery({keyword});
     const navigate = useNavigate();
 
     return (
@@ -61,12 +62,17 @@ export default function ProjectScreen() {
                                 })}
 
                             </div>
+
                         </section>
                     )}
 
                 </div>
+                {projects?.page && projects?.pages && (
+                    <Paginate page={projects.page} pages={projects.pages} keyword={"keyword"} />
+                )}
 
             </div>
+
             <ImageCarousel />
             <Footer />
 

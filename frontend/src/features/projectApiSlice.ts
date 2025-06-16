@@ -16,9 +16,8 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
             keepUnusedDataFor: 5,
             //@ts-ignore
             providesTags: ["projects"],
-
         }),
-        getProductsPagination: builder.query({
+        getProjectsPagination: builder.query({
             query: ({pageNumber, keyword}) => ({
                 url: PROJECT_URL,
                 params:{pageNumber, keyword},
@@ -89,7 +88,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
 export const {
     useGetAllProjectsQuery,
     //@ts-ignore
-    useGetProjectPaginationQuery,
+    useGetProjectsPaginationQuery,
     useGetMyProjectQuery,
     useGetProjectQuery,
     useCreateProjectMutation,
