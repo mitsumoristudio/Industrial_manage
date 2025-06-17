@@ -13,9 +13,10 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
 // import helmet from 'helmet';
 // import morgan from 'morgan';
+
+// import sgMail from "@sendgrid/mail";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
-// import sgMail from "@sendgrid/mail";
 import express from "express";
 import dotenv from "dotenv";
 
