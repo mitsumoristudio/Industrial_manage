@@ -1,6 +1,6 @@
 
 import path from 'path';
-import cors from 'cors';
+//import cors from 'cors';
 import cookieParser from "cookie-parser";
 import {ajJet} from "./lib/arcjet.js";
 import {errorHandler, notFound} from "./middleware/errorHandler.js";
@@ -39,7 +39,7 @@ app.use(express.urlencoded({extended: true}));
 // Cross-Origin Resource Sharing - is a security feature built into web browsers
 // that controls how resources on web pages can be requested from another domain.
 // Prevent cores middleware in the client
-app.use(cors());
+//app.use(cors());
 
 // app.get("/", (req, res) => {
 //     res.send("API is currently running ...")
