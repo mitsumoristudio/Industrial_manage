@@ -39,9 +39,9 @@ app.use(morgan('dev'));
 // Prevent cores middleware in the client
 app.use(cors());
 
-app.get("/", (req, res) => {
-    res.send("API is currently running ...")
-})
+// app.get("/", (req, res) => {
+//     res.send("API is currently running ...")
+// })
 
 // Apply arcjet rate-limit to all the routes
 app.use(async  (req, res, next) => {
@@ -107,6 +107,19 @@ app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // change
  initProjectModel();
 
  initContactModel();
+
+// Prepare for Production
+if (process.env.NODE_ENV  !== "development") {
+    // set static folder
+    app.use(express.static(path.join(__dirname, "/frontend/build")));
+    // Any route that is not api will be redirected to index.html
+    app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html")));
+
+} else {
+    app.get("/", (req, res) => {
+        res.send("API is currently running ...")
+    })
+}
 
 // Error Handler
 app.use(notFound);
