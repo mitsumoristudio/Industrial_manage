@@ -11,8 +11,8 @@ import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
-import helmet from 'helmet';
-import morgan from 'morgan';
+// import helmet from 'helmet';
+// import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 // import sgMail from "@sendgrid/mail";
@@ -31,10 +31,10 @@ app.use(express.urlencoded({extended: true}));
 
 // Security Headers with Helmet
 // Helmet is a security middleware that helps you protect your app by setting various HTTP headers
-app.use(helmet());
+// app.use(helmet());
 
 // Logs the request(GET)
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // Cross-Origin Resource Sharing - is a security feature built into web browsers
 // that controls how resources on web pages can be requested from another domain.
