@@ -11,7 +11,6 @@ import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
-
 import express from "express";
 import dotenv from "dotenv";
 import helmet from 'helmet';
