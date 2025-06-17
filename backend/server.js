@@ -1,8 +1,6 @@
 
 import path from 'path';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import cors from 'cors';
+
 import {ajJet} from "./lib/arcjet.js";
 import {errorHandler, notFound} from "./middleware/errorHandler.js";
 import initUserModel from "./models/UserModel.js";
@@ -16,6 +14,9 @@ import contactUsRoute from "./routes/contactUsRoute.js";
 import cookieParser from "cookie-parser";
 import express from "express";
 import dotenv from "dotenv";
+import helmet from 'helmet';
+import morgan from 'morgan';
+import cors from 'cors';
 // import sgMail from "@sendgrid/mail";
 
 dotenv.config();
