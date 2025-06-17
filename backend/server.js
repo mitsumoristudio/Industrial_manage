@@ -1,6 +1,7 @@
 
 import path from 'path';
-
+import cors from 'cors';
+import cookieParser from "cookie-parser";
 import {ajJet} from "./lib/arcjet.js";
 import {errorHandler, notFound} from "./middleware/errorHandler.js";
 import initUserModel from "./models/UserModel.js";
@@ -15,8 +16,6 @@ import contactUsRoute from "./routes/contactUsRoute.js";
 // import morgan from 'morgan';
 
 // import sgMail from "@sendgrid/mail";
-import cors from 'cors';
-import cookieParser from "cookie-parser";
 import express from "express";
 import dotenv from "dotenv";
 
