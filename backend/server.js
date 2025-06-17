@@ -1,4 +1,7 @@
 
+import express from "express";
+import dotenv from "dotenv";
+
 import {ajJet} from "./lib/arcjet.js";
 import {errorHandler, notFound} from "./middleware/errorHandler.js";
 import initUserModel from "./models/UserModel.js";
@@ -10,8 +13,6 @@ import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
 
-import express from "express";
-import dotenv from "dotenv";
 import path from 'path';
 import helmet from 'helmet';
 import morgan from 'morgan';
