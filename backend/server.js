@@ -1,5 +1,10 @@
-
+import express from "express";
+import dotenv from "dotenv";
 import path from 'path';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import cors from 'cors';
+import cookieParser from "cookie-parser";
 
 import {ajJet} from "./lib/arcjet.js";
 import {errorHandler, notFound} from "./middleware/errorHandler.js";
@@ -11,14 +16,8 @@ import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
-import helmet from 'helmet';
-import morgan from 'morgan';
-import cors from 'cors';
-import cookieParser from "cookie-parser";
-// import sgMail from "@sendgrid/mail";
-import express from "express";
-import dotenv from "dotenv";
 
+// import sgMail from "@sendgrid/mail";
 
 dotenv.config();
 
@@ -119,7 +118,7 @@ if (process.env.NODE_ENV  !== "development") {
 
 } else {
     app.get("/", (req, res) => {
-        res.send("API is currently running ...")
+        res.send("API is currently running on localhost...")
     })
 }
 
