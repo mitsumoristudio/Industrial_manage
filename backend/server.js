@@ -1,6 +1,5 @@
 
 import path from 'path';
-import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -16,6 +15,7 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
 import cookieParser from "cookie-parser";
 import express from "express";
+import dotenv from "dotenv";
 // import sgMail from "@sendgrid/mail";
 
 dotenv.config();
