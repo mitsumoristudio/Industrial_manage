@@ -12,7 +12,6 @@ import projectRoute from "./routes/projectRoute.js";
 import contactRoute from "./routes/contactRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
-
 import path from 'path';
 import helmet from 'helmet';
 import morgan from 'morgan';

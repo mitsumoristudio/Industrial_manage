@@ -4,7 +4,7 @@ import {toast} from "react-toastify";
 import {Link, useNavigate,} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useCreateContactMutation } from "../../features/contactApiSlice";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet-async";
 
 export default function AddContactPage() {
     // @ts-ignore
@@ -39,7 +39,10 @@ export default function AddContactPage() {
 
     return (
         <>
-            <ReactTitle title="Add Contact" />
+            <Helmet>
+                <title>Add Contact</title>
+                <meta name="description" content="Add Contact Page" />
+            </Helmet>
             <form className={'min-h-[80vh] w-full flex items-center p-2'}
                   onSubmit={onSubmitHandler}
             >

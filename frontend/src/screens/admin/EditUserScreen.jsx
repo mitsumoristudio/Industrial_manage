@@ -6,7 +6,7 @@ import {useDispatch, } from "react-redux";
 import CustomLoader from "../../components/CustomLoader";
 import {setCredentials} from "../../features/authSlice";
 import {useGetUserDetailsQuery, useUpdateUserMutation} from "../../features/userApiSlice";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet";
 
 export default function EditUserScreen() {
     const {id: userIdParam} = useParams();
@@ -60,7 +60,10 @@ export default function EditUserScreen() {
 
 return (
     <>
-        <ReactTitle title="Edit User Details" />
+        <Helmet>
+            <title>Edit User</title>
+            <meta name="description" content="Edit User" />
+        </Helmet>
         {isLoading ? (
             <CustomLoader />
         ) : isError ? (

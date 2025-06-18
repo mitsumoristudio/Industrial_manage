@@ -1,5 +1,5 @@
 
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {assets} from "../assets/assets";
 import Footer from "../components/Footer";
 
@@ -7,7 +7,10 @@ export default function AboutUsScreen() {
 
     return (
         <>
-            <ReactTitle title="About Us"/>
+            <Helmet>
+                <title>About Us</title>
+                <meta name="description" content="About Us" />
+            </Helmet>
             {/* Featured section absolute for offsetting the hero section */}
             <section
                 aria-labelledby="social-impact-heading"

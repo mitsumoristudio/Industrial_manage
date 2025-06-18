@@ -5,7 +5,7 @@ import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../../components/CustomLoader";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {useGetMyContactsQuery, useDeleteContactMutation} from "../../features/contactApiSlice";
 
 export default function MyContactScreen() {
@@ -34,7 +34,10 @@ export default function MyContactScreen() {
 
     return (
         <>
-            <ReactTitle title="My Contact Table Page" />
+            <Helmet>
+                <title>My Contact</title>
+                <meta name="description" content="My Contact Page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

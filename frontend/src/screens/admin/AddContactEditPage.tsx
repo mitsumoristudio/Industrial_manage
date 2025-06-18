@@ -1,7 +1,7 @@
 
 import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {Link, useNavigate, useParams,} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useGetContactQuery, useUpdateContactMutation} from "../../features/contactApiSlice";
@@ -67,7 +67,10 @@ export default function AddContactEditPage() {
 
 return (
     <>
-        <ReactTitle title="Edit Contact" />
+        <Helmet>
+            <title>Edit Contacts</title>
+            <meta name="description" content="Edit Contacts Page"/>
+        </Helmet>
         {isLoading ? (
             <CustomLoader />
         ) : isError ? (

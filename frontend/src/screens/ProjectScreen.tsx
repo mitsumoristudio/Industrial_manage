@@ -1,12 +1,12 @@
 
 import CustomLoader from "../components/CustomLoader";
 import Footer from "../components/Footer";
-import {useGetAllProjectsQuery, useGetProjectsPaginationQuery} from "../features/projectApiSlice";
+import {useGetProjectsPaginationQuery} from "../features/projectApiSlice";
 import {useParams} from "react-router-dom";
 
 import ImageCarousel from "../components/ImageCarousel";
 import {useNavigate} from "react-router-dom";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import Paginate from "../components/Pagination"
 
 
@@ -18,7 +18,10 @@ export default function ProjectScreen() {
 
     return (
         <>
-            <ReactTitle title="Project Page" />
+            <Helmet>
+                <title>Projects</title>
+                <meta name="description" content="Project Page" />
+            </Helmet>
             <div className={"bg-white mx-auto py-4"}>
                 <div className={"mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8 xl:px-10"}>
                     {isLoading ? (

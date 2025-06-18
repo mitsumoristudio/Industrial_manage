@@ -1,7 +1,7 @@
 import  {useState, useEffect} from 'react'
 import {toast} from 'react-toastify'
 import {useSelector} from 'react-redux'
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet";
 import {useUploadProjectImageMutation, useUpdateProjectMutation, useGetProjectQuery} from "../../features/projectApiSlice";
 import {useNavigate, useParams} from "react-router-dom";
 import CustomLoader from "../../components/CustomLoader";
@@ -116,7 +116,10 @@ export const AddProjectEditPage = () => {
 
     return (
         <>
-            <ReactTitle title={"Edit Project"} />
+            <Helmet>
+                <title>Project Edit</title>
+                <meta name="description" content="Project Edit Page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

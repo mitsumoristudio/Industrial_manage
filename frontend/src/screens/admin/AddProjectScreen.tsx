@@ -3,7 +3,7 @@ import {toast} from "react-toastify";
 import {useNavigate,} from "react-router-dom";
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import {useSelector} from "react-redux";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {
     useCreateProjectMutation,
     useUploadProjectImageMutation
@@ -86,7 +86,10 @@ export default function CreateProjectScreen() {
 
     return (
         <>
-            <ReactTitle title="Create Project"/>
+            <Helmet>
+                <title>Add Project</title>
+                <meta name="description" content="Add Project Page" />
+            </Helmet>
             <button className={"my-2 mx-2 "}
                     onClick={() => onBackHandler()}>
                 <FaCircleArrowLeft size={36}/>

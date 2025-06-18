@@ -3,16 +3,15 @@ import React, {useState, useEffect} from 'react';
 import { PiUserFill } from "react-icons/pi";
 import { FaLock } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
-import {ReactTitle} from "react-meta-tags"
 import SettingSection from "../../components/SettingSection.jsx"
 import ToggleSwitch from "../../components/ToggleSwitch.jsx"
 import {motion} from "framer-motion";
 import {useProfileMutation, useDeleteUserMutation} from "../../features/userApiSlice";
 import {useSelector, useDispatch, } from "react-redux";
-// import CustomLoader from "../components/CustomLoader";
 import {toast} from "react-toastify";
 import {setCredentials} from "../../features/authSlice";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 
 export default function SettingsScreen() {
@@ -92,7 +91,10 @@ export default function SettingsScreen() {
 
     return (
         <>
-            <ReactTitle>Settings Screen</ReactTitle>
+            <Helmet>
+                <title>Settings</title>
+                <meta name="description" content="Settings Page" />
+            </Helmet>
                 <main className={"flex-1 overflow-auto relative z-10 bg-gray-900 px-4"}>
                     <header
                         className={"bg-gray-900 bg-opacity-50 backdrop-blur-md shadow-lg mb-6 border-b border-gray-700"}>

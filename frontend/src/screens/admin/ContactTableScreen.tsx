@@ -6,7 +6,7 @@ import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../../components/CustomLoader";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {useGetAllContactsQuery, useDeleteContactMutation} from "../../features/contactApiSlice";
 
 
@@ -46,7 +46,10 @@ export default function ContactTableScreen() {
 
     return (
         <>
-            <ReactTitle title="Contact Table Page" />
+            <Helmet>
+                <title>Contact Table</title>
+                <meta name="description" content="Contact Table page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

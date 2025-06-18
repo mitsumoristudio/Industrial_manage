@@ -8,7 +8,7 @@ import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../components/CustomLoader";
 import {useGetAllProjectsQuery, useDeleteProjectMutation} from "../features/projectApiSlice";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 
 export default function ProjectTableScreen() {
     const {keyword, pageNumber} = useParams();
@@ -46,7 +46,10 @@ export default function ProjectTableScreen() {
 
     return (
         <>
-            <ReactTitle title={"Project Table Page"} />
+            <Helmet>
+                <title>Project Table</title>
+                <meta name="description" content="Project Table page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

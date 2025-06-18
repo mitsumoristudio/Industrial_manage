@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 import CustomLoader from "../../components/CustomLoader";
 import {useGetAllUsersQuery, useDeleteUserMutation} from "../../features/userApiSlice";
 import {Link} from "react-router-dom";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet";
 
 export default function UserTableScreen() {
     const {data: users, isLoading, isError, refetch} = useGetAllUsersQuery();
@@ -37,7 +37,10 @@ export default function UserTableScreen() {
 
     return (
         <>
-            <ReactTitle title="Users Table" />
+            <Helmet>
+                <title>User Table</title>
+                <meta name="description" content="User Table Page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

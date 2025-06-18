@@ -5,7 +5,7 @@ import CustomLoader from "../components/CustomLoader";
 import { FaCircleArrowLeft, FaBuilding, FaMoneyCheckDollar, FaMapLocationDot, FaEarthAmericas } from "react-icons/fa6";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BsFillBuildingFill } from "react-icons/bs";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 
 
 
@@ -22,7 +22,10 @@ export default function ProjectDetailScreen() {
 
     return (
         <main>
-            <ReactTitle title="Project Detail Page" />
+            <Helmet>
+                <title>Project details</title>
+                <meta name="description" content="Details" />
+            </Helmet>
             <div className={"bg-white mx-auto max-w-7xl overflow-hidden sm: px-6 lg: px-8"}>
                 {isLoading ? (
                     <div className={"py-6 mb-2"}>

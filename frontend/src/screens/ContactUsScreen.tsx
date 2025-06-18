@@ -1,11 +1,11 @@
 import {useState} from "react";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet"
 
 
 export default function ContactUsScreen() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-    const [name, setName] = useState("");
     const navigate = useNavigate();
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -25,6 +25,10 @@ export default function ContactUsScreen() {
 
     return (
         <>
+            <Helmet>
+                <title>Contact Us</title>
+                <meta name="description" content="Contact Us" />
+            </Helmet>
             <section className={"my-2 mx-2 py-8 px-6 md: px-12 bg-gray-50 rounded-lg shadow-lg"}>
                 <h2 className={"font-bold text-2xl md:text-2xl max-w-3xl mx-auto opacity-95 text-gray-800"}>
                     Have a question or ready to work with us? We're here to help you every step of the way to get the project

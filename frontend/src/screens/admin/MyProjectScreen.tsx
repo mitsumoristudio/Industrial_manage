@@ -7,7 +7,7 @@ import { IoSyncCircleSharp } from "react-icons/io5";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import CustomLoader from "../../components/CustomLoader";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 import {useGetMyProjectQuery, useDeleteProjectMutation} from "../../features/projectApiSlice";
 
 
@@ -37,7 +37,10 @@ export default function MyProjectScreen() {
 
     return (
         <>
-            <ReactTitle title={"Project Table Page"} />
+            <Helmet>
+                <title>My Project</title>
+                <meta name="description" content="My Project Page" />
+            </Helmet>
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

@@ -4,13 +4,16 @@ import HomeCardGrids from "../components/HomeCardGrids";
 import HomeScreenProductCard from "../components/HomeScreenProductCard";
 import {NavLink} from "react-router-dom";
 import Footer from "../components/Footer";
-import {ReactTitle} from "react-meta-tags"
+import {Helmet} from "react-helmet"
 
 
 export default function HomeMainScreen() {
     return (
         <>
-            <ReactTitle title={"Home Page"} />
+            <Helmet>
+                <title>Home</title>
+                <meta name="description" content="Home Page" />
+            </Helmet>
             <ImageSlider/>
             <HomeCardGrids/>
 
