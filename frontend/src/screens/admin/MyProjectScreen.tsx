@@ -1,6 +1,4 @@
 
-import {useState} from "react";
-
 import {motion} from "framer-motion";
 import { FaPlus } from "react-icons/fa";
 import { IoSyncCircleSharp } from "react-icons/io5";

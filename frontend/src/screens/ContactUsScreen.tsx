@@ -18,7 +18,7 @@ export default function ContactUsScreen() {
             body: JSON.stringify(formData),
         });
         const data = await res.json();
-        // alert(data.message);
+     //   alert(data.message);
         toast.success("Message sent successfully.");
         navigate("/");
     };
