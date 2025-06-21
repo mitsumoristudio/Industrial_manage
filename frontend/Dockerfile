@@ -7,9 +7,15 @@ WORKDIR /app
 
 #Install dependencies and build
 COPY package*.json ./
+#RUN npm install
+#COPY . .
+#RUN npm run build
+
+ENV CI=false
 RUN npm install
-COPY . .
 RUN npm run build
+
+COPY . .
 
 # Use Nginx to serve build
 FROM nginx:alpine

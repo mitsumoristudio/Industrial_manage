@@ -7,7 +7,11 @@ WORKDIR /app
 
 # Copy packages and install dependencies
 COPY package*.json ./
+# RUN npm install
+
+ENV CI=false
 RUN npm install
+RUN npm run build
 
 # Copy backend code
 COPY . .
