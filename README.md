@@ -10,7 +10,7 @@ Built for onsite Superintendent and Project Manager. Onsite Project Management P
 
 https://www.nashindustrials.org
 
-Built with React, Postgres, Node Js, Express & Redux. This is the capstone project I intentionally wanted to create and visualize without using MS excel. This eventually boiled down to learning the fundamental of Swift and developing iOS app and dabbling into web development with Javascript.
+Built with React, Postgres, Node Js, Express & Redux. This is the capstone project I intentionally wanted to create and visualize without using MS excel. since 2023. This eventually boiled down to learning the fundamental of Swift and developing iOS app and dabbling into web development with Javascript. Expectation and product time differed greatly, but great learning experience none the less. 
 
 ## Key Features
 
