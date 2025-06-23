@@ -55,6 +55,8 @@ Database
 - Postman: Tesing API routes and logistics
 - More Testing: ArcJet for prevention of SQL injection, Rate Limiting, Bot Detection, XSS, CSRF attacks.
 
+Frontend UI components tailored for mobile screens. 
+
 ### Env Variables
 
 Rename the `.env.example` file to `.env` and add the following
