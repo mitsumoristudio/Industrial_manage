@@ -4,7 +4,7 @@ The Digital Blueprint for project succcess. Reduce complication by simplify book
 
 Built for onsite Superintendent and Project Manager
 
-<a ><img src="https://github.com/mitsumoristudio/sekatsukan-Ecommerce-App/blob/main/home.png" width= "1080" height = "600" /></a>
+<a ><img src="https://github.com/mitsumoristudio/Industrial_manage/blob/main/cover.png" width= "1080" height = "600" /></a>
 
 ### Link
 
