@@ -1,8 +1,8 @@
-# Industrials Construction Project Management Platform
+# Industrials Construction Project Management 
 
 The Digital Blueprint for project succcess. Reduce complication by simplify book keeping of construction projects.
 
-Built for onsite Superintendent and Project Manager
+Built for onsite Superintendent and Project Manager. Onsite Project Management Platform.
 
 <a ><img src="https://github.com/mitsumoristudio/Industrial_manage/blob/main/cover.png" width= "1080" height = "600" /></a>
 
