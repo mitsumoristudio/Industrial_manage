@@ -1,4 +1,4 @@
-# Industrials Construction Project Management 
+# Industrials- Construction Project Management 
 
 The Digital Blueprint for project succcess. Reduce complication by simplify book keeping of construction projects.
 
