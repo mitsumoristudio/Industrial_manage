@@ -14,7 +14,7 @@ Built with React, Postgres, Node Js, Express & Redux. This is the capstone proje
 
 ## Key Features
 
-- Project creation and desccription, scope, work
+- Project creation and add requirements, scope, work
 - Start project from scratch or edit ongoing construction
 - Set and Visualize project goals and contacts
 - Build better relationship with clients on future projects
